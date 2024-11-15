@@ -6,18 +6,21 @@ import MyPost from '../pages/MyPost'
 import Detail from '../pages/Detail'
 import MyPage from '../pages/MyPage'
 import Write from '../pages/Write'
+import Layout from '../layout/Layout'
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/mypost" element={<MyPost />} />
-        <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/mypage" element={<MyPage />} />
-        <Route path="/write" element={<Write />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/mypost" element={<MyPost />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/mypage" element={<MyPage />} />
+          <Route path="/write" element={<Write />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
