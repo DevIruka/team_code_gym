@@ -15,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
         src: url("/fonts/Helchang.ttf") format("truetype");
     }
     body {
+        width: 100%;
         background-color: var(--background);
         font-family: "Helchang";
         font-size: 20px;
