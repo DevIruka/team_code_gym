@@ -4,6 +4,7 @@ import styled from 'styled-components'
 export const StIconWrapper = styled.div`
   .user-icon {
     font-size: 50px;
+    fill: var(--white);
     cursor: pointer;
     filter: drop-shadow(0 0 3px #fffb00) drop-shadow(0 0 5px #ffcc00)
       drop-shadow(0 0 8px #ffaa00);
