@@ -3,6 +3,7 @@ import {
   StLogo,
   StGnbContainer,
   StGnbLeftWrapper,
+  StLink,
 } from '../styles/layout/HeaderStyle'
 import { UserProfile } from '../components/UserProfile'
 
@@ -10,7 +11,9 @@ const Header = () => {
   return (
     <StGnbContainer>
       <StGnbLeftWrapper>
-        <StLogo>CodeGym</StLogo>
+        <StLink to="/">
+          <StLogo>CodeGym</StLogo>
+        </StLink>
         <SearchInput />
       </StGnbLeftWrapper>
       <UserProfile />

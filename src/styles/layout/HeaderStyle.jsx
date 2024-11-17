@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
 export const StGnbContainer = styled.header`
@@ -11,6 +12,10 @@ export const StGnbContainer = styled.header`
 export const StGnbLeftWrapper = styled.div`
   display: flex;
   gap: 40px;
+`
+
+export const StLink = styled(Link)`
+  text-decoration: none;
 `
 
 export const StLogo = styled.h1`
