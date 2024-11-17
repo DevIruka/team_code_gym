@@ -1,11 +1,10 @@
 import SearchInput from '../components/SearchInput'
 import {
   StLogo,
-  StGnbRightWrapper,
   StGnbContainer,
   StGnbLeftWrapper,
 } from '../styles/layout/HeaderStyle'
-import { IoPersonCircleOutline } from 'react-icons/io5'
+import { UserProfile } from '../components/UserProfile'
 
 const Header = () => {
   return (
@@ -14,9 +13,7 @@ const Header = () => {
         <StLogo>CodeGym</StLogo>
         <SearchInput />
       </StGnbLeftWrapper>
-      <StGnbRightWrapper>
-        <IoPersonCircleOutline />
-      </StGnbRightWrapper>
+      <UserProfile />
     </StGnbContainer>
   )
 }

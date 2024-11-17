@@ -3,6 +3,7 @@ import { styled } from 'styled-components'
 export const StGnbContainer = styled.header`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   background-color: var(--header);
   padding: 20px 30px;
 `
@@ -35,17 +36,6 @@ export const StLogo = styled.h1`
       0 0 20px #ffcc00, 0 0 35px #ffaa00, 0 0 40px #ffaa00; */
     opacity: 0.8;
   }
-`
-
-export const StGnbRightWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  cursor: pointer;
-  filter: drop-shadow(0 0 3px #fffb00) drop-shadow(0 0 5px #ffcc00)
-    drop-shadow(0 0 8px #ffaa00);
-  opacity: 0.8;
 `
 
 // TODO : 사진 화질이 안좋아서 직접 로고 만들었음. 의견물어보기
