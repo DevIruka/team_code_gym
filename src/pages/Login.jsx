@@ -1,4 +1,3 @@
-import styled from 'styled-components'
 import {
   Stbtn,
   StFieldset,
@@ -7,20 +6,40 @@ import {
   StInput,
   StInputWrapper,
 } from '../styles/components/signup_style/SignupStyle'
-
-const StBtnWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-`
+import { StBtnWrapper } from '../styles/components/login_style/LoginStyle'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
+  const nav = useNavigate()
+  const signUpHandler = () => {
+    nav('/signup')
+  }
+  const loginHandler = async (e) => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    const email = formData.get('email').trim()
+    const password = formData.get('password').trim()
+    if (!email || !password) {
+      alert('모든 필드를 입력해주세요.')
+      return
+    }
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      })
+      if (error) {
+        throw error
+      }
+    } catch (error) {
+      console.log('실패', error)
+    }
+  }
+
   return (
     <>
       <StFormWrapper>
-        <StForm>
+        <StForm onSubmit={loginHandler}>
           <StFieldset>
             <span>로그인</span>
             <StInputWrapper>
@@ -41,7 +60,9 @@ const Login = () => {
             </StInputWrapper>
             <StBtnWrapper>
               <Stbtn>로그인</Stbtn>
-              <Stbtn>회원가입</Stbtn>
+              <Stbtn type="button" onClick={signUpHandler}>
+                회원가입
+              </Stbtn>
             </StBtnWrapper>
           </StFieldset>
         </StForm>
