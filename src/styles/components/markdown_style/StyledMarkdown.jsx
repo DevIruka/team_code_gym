@@ -7,27 +7,33 @@ const StyledMarkdown = styled.div`
   pre {
     background-color: white;
     padding: 10px;
+    // ... 추가를 위해 조정
+    position: relative;
   }
 
   pre > code {
-    text-overflow: hidden;
-    max-height: calc(1.5em * 5);
-
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    /* 우선 5줄로 제한 */
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
     overflow: hidden;
-    text-overflow: ellipsis; /* ... */
-
+    // 최대 6줄
+    max-height: calc(1.5em * 10);
     // 줄 바꿈
     white-space: pre-wrap;
-    word-break: break-all;
+    word-break: break-word;
+  }
+
+  pre > code::after {
+    // ... 이 들어갈 위치 지정
+    content: '...';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    // TODO : 배경색 변경 여부 확인
+    // 배경색에 맞췄음
+    background-color: white;
+    text-align: left;
+    padding-left: 20px;
+    line-height: 1.5;
+    height: 3em;
   }
 `
-
 export default StyledMarkdown
-
-// TODO: 코드 overflow 되었을때 처리 (... 추가하는 것)
