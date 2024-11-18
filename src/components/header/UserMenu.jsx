@@ -5,8 +5,12 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import EditIcon from '@mui/icons-material/Edit'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useNickname } from '../../hooks/useNickname'
 
 export const UserMenu = ({ onClose }) => {
+  const { payload: userId } = useSelector((state) => state.userData)
+  const nickname = useNickname(userId)
   const navigate = useNavigate()
 
   const handleNavigate = (path) => {
@@ -17,8 +21,7 @@ export const UserMenu = ({ onClose }) => {
   return (
     <>
       <StMenuItem>
-        {/* TODO : table에서 user정보 가져오기 */}
-        <Avatar className="menu-icon" /> 김은지
+        <Avatar className="menu-icon" /> {nickname}
       </StMenuItem>
       <Divider />
       <StMenuItem onClick={() => handleNavigate('/mypage')}>
