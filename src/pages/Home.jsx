@@ -1,8 +1,8 @@
-import PostCardContainer from '../components/my_post/PostCardContainer'
+import HomePostContainer from '../components/home/HomePostContainer'
 const Home = () => {
   return (
     <div>
-      <PostCardContainer></PostCardContainer>
+      <HomePostContainer></HomePostContainer>
     </div>
   )
 }
