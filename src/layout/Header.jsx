@@ -1,11 +1,11 @@
-import SearchInput from '../components/SearchInput'
+import SearchInput from '../components/header/SearchInput'
+import { UserProfile } from '../components/header/UserProfile'
 import {
   StLogo,
   StGnbContainer,
   StGnbLeftWrapper,
   StLink,
 } from '../styles/layout/HeaderStyle'
-import { UserProfile } from '../components/UserProfile'
 
 const Header = () => {
   return (

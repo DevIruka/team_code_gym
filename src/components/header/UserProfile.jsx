@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { IoPersonCircleOutline } from 'react-icons/io5'
-import { StIconWrapper, StMenu } from '../styles/components/UserProfileStyle'
+import {
+  StIconWrapper,
+  StMenu,
+} from '../../styles/components/header_style/UserProfileStyle'
 import { IconButton, MenuList } from '@mui/material'
 import { UserMenu } from './UserMenu'
 

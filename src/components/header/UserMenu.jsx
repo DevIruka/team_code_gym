@@ -1,5 +1,5 @@
 import React from 'react'
-import { StMenuItem } from '../styles/components/UserMenuStyle'
+import { StMenuItem } from '../../styles/components/header_style/UserMenuStyle'
 import { Avatar, Divider } from '@mui/material'
 import SettingsIcon from '@mui/icons-material/Settings'
 import EditIcon from '@mui/icons-material/Edit'

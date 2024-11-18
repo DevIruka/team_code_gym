@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {
   StSearchInputField,
   StSearchInputWrapper,
-} from '../styles/components/SearchInputStyle'
+} from '../../styles/components/header_style/SearchInputStyle'
 import { CiSearch } from 'react-icons/ci'
 
 const SearchInput = () => {
