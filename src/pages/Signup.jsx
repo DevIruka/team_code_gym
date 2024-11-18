@@ -32,34 +32,28 @@ const Signup = () => {
     const nickname = formData.get('nickname').trim()
     const email = formData.get('email').trim()
     const password = formData.get('password').trim()
-
     if (!nickname || !email || !password) {
       alert('모든 필드를 입력해주세요.')
       return
     }
-
     try {
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
       })
-      if (error) {
-        throw error
-      }
+      if (error) throw error
+      alert('회원가입에 성공했습니다!')
     } catch (error) {
-      console.log('실패', error)
+      console.log('회원가입 실패:', error)
     }
-
     try {
       const { data, error } = await supabase
         .from('user')
         .insert([{ email, nickname }])
         .select()
-      if (error) {
-        throw error
-      }
+      if (error) throw error
     } catch (error) {
-      console.log('실패', error)
+      console.log( error)
     }
     e.target.reset()
     setIsAgreed(false)
