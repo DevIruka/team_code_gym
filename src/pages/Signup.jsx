@@ -48,12 +48,12 @@ const Signup = () => {
     }
     try {
       const { data, error } = await supabase
-        .from('user')
+        .from('users')
         .insert([{ email, nickname }])
         .select()
       if (error) throw error
     } catch (error) {
-      console.log( error)
+      console.log(error)
     }
     e.target.reset()
     setIsAgreed(false)
