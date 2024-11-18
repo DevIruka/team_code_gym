@@ -2,9 +2,8 @@
  card를 항상 한 줄에 두개씩 고정할 건지
  card가 화면 사이즈에 맞게 한 줄에 여러개 들어가게 할지 말지를 정하면 좋겠습니다.*/
 
-
 import React, { useState, useEffect } from 'react'
-import StyledCardContainer from '../../styles/components/mypage_style/StyledCardContainer'
+import StyledCardContainer from '../../styles/components/mypost_style/StyledCardContainer'
 import supabase from '../../api/supabaseClient'
 import PostCard from './PostCard'
 
@@ -26,8 +25,7 @@ const PostCardContainer = () => {
     }
 
     fetchPosts()
-  }, []) 
-
+  }, [])
 
   // TODO: 지금은 redux 사용하지 않아서 일단은 props로 넘겨주는 방식입니다. 나중에 refactoring 해야될 것 같습니다.
   return (

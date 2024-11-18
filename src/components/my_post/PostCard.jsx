@@ -4,7 +4,7 @@ import {
   CardTitle,
   CardContext,
   CardCode,
-} from '../../styles/components/mypage_style/CardStyle'
+} from '../../styles/components/mypost_style/CardStyle'
 import MarkdownRenderer from '../markdown/MarkdownRenderer'
 
 const PostCard = ({ post }) => {
