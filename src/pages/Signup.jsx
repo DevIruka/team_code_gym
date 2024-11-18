@@ -7,7 +7,7 @@ import {
   StFormWrapper,
   StInput,
   StInputWrapper,
-} from '../styles/components/signupstyle/SignupStyle'
+} from '../styles/components/signup_style/SignupStyle'
 
 import { createClient } from '@supabase/supabase-js'
 
@@ -53,7 +53,7 @@ const Signup = () => {
     try {
       const { data, error } = await supabase
         .from('user')
-        .insert([{ email, password, nickname }])
+        .insert([{ email, nickname }])
         .select()
       if (error) {
         throw error
