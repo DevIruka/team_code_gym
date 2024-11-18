@@ -1,4 +1,4 @@
-import PostCardContainer from '../components/my_page/PostCardContainer'
+import PostCardContainer from '../components/my_post/PostCardContainer'
 const Home = () => {
   return (
     <div>
