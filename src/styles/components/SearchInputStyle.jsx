@@ -47,5 +47,3 @@ export const StSearchInputField = styled.input`
     transform: scale(0.95);
   }
 `
-
-// TODO : box-shadow(border), background 색깔 회의
