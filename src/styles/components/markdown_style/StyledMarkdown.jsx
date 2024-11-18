@@ -14,7 +14,7 @@ const StyledMarkdown = styled.div`
   pre > code {
     overflow: hidden;
     // 최대 6줄
-    max-height: calc(1.5em * 10);
+    max-height: calc(1.5em * 4);
     // 줄 바꿈
     white-space: pre-wrap;
     word-break: break-word;
@@ -27,8 +27,6 @@ const StyledMarkdown = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    // TODO : 배경색 변경 여부 확인
-    // 배경색에 맞췄음
     background-color: white;
     text-align: left;
     padding-left: 20px;
