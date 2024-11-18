@@ -53,7 +53,7 @@ const Signup = () => {
     try {
       const { data, error } = await supabase
         .from('user')
-        .insert([{ email, password, nickname }])
+        .insert([{ email, nickname }])
         .select()
       if (error) {
         throw error
