@@ -7,7 +7,7 @@ import {
   StFormWrapper,
   StInput,
   StInputWrapper,
-} from '../styles/components/signupstyle/SignupStyle'
+} from '../styles/components/signup_style/SignupStyle'
 
 import { createClient } from '@supabase/supabase-js'
 
