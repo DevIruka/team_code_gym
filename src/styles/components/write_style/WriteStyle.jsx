@@ -46,6 +46,6 @@ export const StButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: var(--orange);
+    background-color: #c29e1c;
   }
 `
