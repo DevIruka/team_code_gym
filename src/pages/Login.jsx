@@ -1,26 +1,23 @@
-import { useNavigate } from 'react-router-dom'
-import { login } from '../api/users'
 import LoginForm from '../components/signup_login/LoginForm'
+import Header from '../components/signup_login/Header'
+import useLogin from '../hooks/useLogin'
+import useToastNotifications from '../hooks/useToastNotification'
+import { useSelector } from 'react-redux'
+import { ToastContainer } from 'react-toastify'
 
 const Login = () => {
-  const nav = useNavigate()
-  const signUpHandler = () => {
-    nav('/signup')
-  }
-  const loginHandler = async (e) => {
-    e.preventDefault()
-    const formData = new FormData(e.target)
-    const email = formData.get('email').trim()
-    const password = formData.get('password').trim()
-    if (!email || !password) {
-      alert('모든 필드를 입력해주세요.')
-      return
-    }
-    login(email, password, nav)
-  }
+  const { signUpHandler, loginHandler, emptyError, resetErrors } = useLogin()
+  const loginData = useSelector((state) => state.login)
+  useToastNotifications({
+    loginData,
+    emptyError,
+    resetErrors,
+  })
   return (
     <>
+      <Header />
       <LoginForm signUpHandler={signUpHandler} loginHandler={loginHandler} />
+      <ToastContainer />
     </>
   )
 }
