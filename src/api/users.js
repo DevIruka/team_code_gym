@@ -1,16 +1,15 @@
+import { toast } from 'react-toastify'
 import supabase from './supabaseClient'
 
-export const login = async (email, password, nav) => {
+export const login = async (email, password) => {
   try {
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     })
+    console.log('로그인 성공')
     if (error) throw error
-    alert('로그인 성공!')
-    nav('/')
   } catch (error) {
-    alert('로그인에 실패하였습니다. 이메일과 비밀번호를 다시 확인해주세요.')
     console.log('로그인 실패!:', error)
   }
 }
@@ -24,14 +23,14 @@ export const logout = async () => {
   }
 }
 
-export const signup = async (email, password, nickname, nav) => {
+export const signup = async (email, password, nickname) => {
   try {
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
     })
     if (error) throw error
-    alert('회원가입에 성공했습니다!')
+    console.log('회원가입 성공')
   } catch (error) {
     console.log('회원가입 실패:', error)
   }
@@ -44,7 +43,6 @@ export const signup = async (email, password, nickname, nav) => {
   } catch (error) {
     console.log(error)
   }
-  nav('/login')
 }
 
 export const getUserNickname = async (id) => {
