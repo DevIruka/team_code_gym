@@ -4,7 +4,7 @@ import {
   StMenu,
   UserProfileImg,
 } from '../../styles/components/header_style/UserProfileStyle'
-import { Avatar, IconButton, MenuList } from '@mui/material'
+import { IconButton, MenuList } from '@mui/material'
 import { UserMenu } from './UserMenu'
 import { useSelector } from 'react-redux'
 import { useProfileImage } from '../../hooks/useProfileImage'
