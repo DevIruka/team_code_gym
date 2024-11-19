@@ -4,7 +4,6 @@ import { currentDate } from '../util/currentDate'
 import { useSelector } from 'react-redux'
 import { useNickname } from './useNickname'
 import { createPost } from '../api/posts'
-import { useNavigate } from 'react-router-dom'
 
 const initialPostData = {
   postId: uuidv4(),
@@ -21,7 +20,8 @@ export const usePostData = () => {
   const userId = useSelector((state) => state.userData)
   const nickname = useNickname(userId)
   const [postData, setPostData] = useState(initialPostData)
-  const navigate = useNavigate()
+  const [isSuccess, setIsSuccess] = useState(false)
+  const [error, setError] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -32,10 +32,14 @@ export const usePostData = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const result = await createPost({ ...postData, createdAt: currentDate() })
-    if (result) {
-      // TODO : alert창 띄우기
-      navigate('/')
+    setIsSuccess(false)
+    setError(false)
+    try {
+      await createPost({ ...postData, createdAt: currentDate() })
+      setIsSuccess(true)
+    } catch (error) {
+      setError(true)
+      setIsSuccess(false)
     }
   }
 
@@ -45,5 +49,5 @@ export const usePostData = () => {
     }
   }, [userId, nickname])
 
-  return { postData, handleChange, handleSubmit }
+  return { postData, isSuccess, error, handleChange, handleSubmit }
 }
