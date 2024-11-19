@@ -1,17 +1,21 @@
 import React from 'react'
+import {
+  StLabel,
+  StSelect,
+} from '../../styles/components/write_style/selectFieldStyle'
 
 const SelectField = ({ id, name, value, onChange, options, label }) => {
   return (
-    <>
-      <label htmlFor={id}>{label}</label>
-      <select id={id} name={name} value={value} onChange={onChange}>
+    <div>
+      <StLabel htmlFor={id}>{label}</StLabel>
+      <StSelect id={id} name={name} value={value} onChange={onChange}>
         {options.map((option) => (
           <option key={option} value={option}>
             {option}
           </option>
         ))}
-      </select>
-    </>
+      </StSelect>
+    </div>
   )
 }
 
