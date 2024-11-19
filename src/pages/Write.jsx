@@ -7,7 +7,11 @@ import {
   StCardContent,
   StCardHeader,
   StFormWrapper,
-  StFrom,
+  StForm,
+  StFormLeft,
+  StFormRight,
+  StFormTop,
+  StFormBottom,
 } from '../styles/components/write_style/WriteStyle'
 import { useEffect } from 'react'
 import { toast, ToastContainer } from 'react-toastify'
@@ -40,40 +44,47 @@ const Write = () => {
         <h2>CodeGym New Problem</h2>
       </StCardHeader>
       <StCardContent>
-        <StFrom onSubmit={handleSubmit}>
-          <InputField
-            id="title"
-            name="title"
-            value={postData.title}
-            onChange={handleChange}
-            label="Problem Title"
-            isTitle={true}
-          />
-          <InputField
-            id="content"
-            name="content"
-            value={postData.content}
-            onChange={handleChange}
-            label="Problem Content"
-          />
-          <InputField
-            id="code"
-            name="code"
-            value={postData.code}
-            onChange={handleChange}
-            label="Solution"
-          />
-          <SelectField
-            id="language"
-            name="language"
-            value={postData.language}
-            onChange={handleChange}
-            options={languageOptions}
-            label="Programming Language"
-          />
-
-          <StButton type="submit">Post</StButton>
-        </StFrom>
+        <StForm onSubmit={handleSubmit}>
+          <StFormTop>
+            <StFormLeft>
+              <InputField
+                id="title"
+                name="title"
+                value={postData.title}
+                onChange={handleChange}
+                label="Problem Title"
+                isTitle={true}
+              />
+              <InputField
+                id="content"
+                name="content"
+                value={postData.content}
+                onChange={handleChange}
+                label="Problem Content"
+              />
+            </StFormLeft>
+            <StFormRight>
+              <InputField
+                id="code"
+                name="code"
+                value={postData.code}
+                onChange={handleChange}
+                label="Solution"
+              />
+            </StFormRight>
+          </StFormTop>
+          <StFormBottom>
+            <SelectField
+              id="language"
+              name="language"
+              value={postData.language}
+              onChange={handleChange}
+              options={languageOptions}
+              label="Programming Language"
+            />
+            <StButton type="submit">Post</StButton>
+          </StFormBottom>
+        </StForm>
       </StCardContent>
       <ToastContainer />
     </StFormWrapper>

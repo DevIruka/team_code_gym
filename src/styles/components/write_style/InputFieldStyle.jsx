@@ -35,6 +35,7 @@ export const StTextarea = styled.textarea`
   font-family: 'Helchang', sans-serif;
   border-radius: 5px;
   box-sizing: border-box;
+  resize: none;
 
   &:focus {
     outline: none;

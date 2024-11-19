@@ -28,7 +28,7 @@ const InputField = ({ id, name, value, onChange, label, isTitle = false }) => {
             name={name}
             value={value}
             onChange={onChange}
-            rows={id === 'code' ? 10 : 3}
+            rows={id === 'code' ? 15 : 11}
           ></StTextarea>
         </>
       )}
