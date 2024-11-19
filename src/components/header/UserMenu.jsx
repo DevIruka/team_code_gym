@@ -10,7 +10,7 @@ import { useNickname } from '../../hooks/useNickname'
 import { logout } from '../../api/users'
 
 export const UserMenu = ({ onClose }) => {
-  const { payload: userId } = useSelector((state) => state.userData)
+  const userId = useSelector((state) => state.userData)
   const nickname = useNickname(userId)
   const navigate = useNavigate()
 
