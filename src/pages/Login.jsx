@@ -1,14 +1,6 @@
-import {
-  Stbtn,
-  StFieldset,
-  StForm,
-  StFormWrapper,
-  StInput,
-  StInputWrapper,
-} from '../styles/components/signup_style/SignupStyle'
-import { StBtnWrapper } from '../styles/components/login_style/LoginStyle'
 import { useNavigate } from 'react-router-dom'
 import { login } from '../api/users'
+import LoginForm from '../components/signup_login/LoginForm'
 
 const Login = () => {
   const nav = useNavigate()
@@ -26,38 +18,9 @@ const Login = () => {
     }
     login(email, password, nav)
   }
-
   return (
     <>
-      <StFormWrapper>
-        <StForm onSubmit={loginHandler}>
-          <StFieldset>
-            <span>로그인</span>
-            <StInputWrapper>
-              <label>이메일</label>
-              <StInput
-                type="email"
-                name="email"
-                placeholder="이메일을 입력해주세요."
-              />
-            </StInputWrapper>
-            <StInputWrapper>
-              <label>비밀번호</label>
-              <StInput
-                type="password"
-                name="password"
-                placeholder="비밀번호를 입력해주세요"
-              />
-            </StInputWrapper>
-            <StBtnWrapper>
-              <Stbtn>로그인</Stbtn>
-              <Stbtn type="button" onClick={signUpHandler}>
-                회원가입
-              </Stbtn>
-            </StBtnWrapper>
-          </StFieldset>
-        </StForm>
-      </StFormWrapper>
+      <LoginForm signUpHandler={signUpHandler} loginHandler={loginHandler} />
     </>
   )
 }
