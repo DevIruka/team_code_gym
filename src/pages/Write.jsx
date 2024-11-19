@@ -1,6 +1,6 @@
 import InputField from '../components/write/InputField'
 import SelectField from '../components/write/SelectField'
-import usePostData from '../hooks/usePostData'
+import { usePostData } from '../hooks/usePostData'
 import {
   StButton,
   StCardContent,
