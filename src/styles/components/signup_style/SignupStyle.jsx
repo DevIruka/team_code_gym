@@ -28,7 +28,9 @@ export const StFieldset = styled.fieldset`
   max-width: 80%;
   height: auto;
   background-color: #181c14;
-  border: 1px solid;
+  border-radius: 10px;
+  border: 2px solid var(--yellow);
+  box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
   padding: 20px;
   @media (max-width: 768px) {
     max-width: 95%;
@@ -87,15 +89,16 @@ export const StCheckWrapper = styled.div`
 
 export const Stbtn = styled.button`
   width: 200px;
-  font-family: 'Helchang';
-  font-size: 20px;
   background-color: var(--yellow);
-  border: 0px;
-  border-radius: 4px;
-  margin-top: 50px;
+  color: #181c14;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 300ms ease-in-out;
 
-  @media (max-width: 768px) {
-    width: 100%;
-    font-size: 18px;
+  &:hover {
+    cursor: pointer;
+    background-color: #c29e1c;
   }
 `

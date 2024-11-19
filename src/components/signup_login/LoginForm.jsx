@@ -12,7 +12,7 @@ const LoginForm = ({ loginHandler, signUpHandler }) => {
     <StFormWrapper>
       <StForm onSubmit={loginHandler}>
         <StFieldset>
-          <StTitle>로그인</StTitle>
+          <StTitle>Login</StTitle>
           <InputContainerEmail />
           <InputContainerPassword />
           <BtnContainer signUpHandler={signUpHandler} />

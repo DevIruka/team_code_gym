@@ -13,16 +13,16 @@ import {
 const Fieldset = ({ isAgreed, handleCheckboxChange }) => {
   return (
     <StFieldset>
-      <StTitle>회원 가입</StTitle>
+      <StTitle>Sign Up</StTitle>
       <InputContainerNickname />
       <InputContainerEmail />
       <InputContainerPassword />
-      <StTitle>모든 코드를 공유하실 준비 되셨습니까?</StTitle>
+      <StTitle>Ready to share ALL of your code?</StTitle>
       <InputContainerCheck
         isAgreed={isAgreed}
         handleCheckboxChange={handleCheckboxChange}
       />
-      <Stbtn>회원가입</Stbtn>
+      <Stbtn>Sign Up</Stbtn>
     </StFieldset>
   )
 }
