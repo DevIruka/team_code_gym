@@ -22,7 +22,6 @@ export const StyledCard = styled.div`
 export const CardTitle = styled.h3`
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 15px;
 `
 
 export const CardContext = styled.p`
