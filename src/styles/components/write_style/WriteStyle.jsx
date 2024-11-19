@@ -28,7 +28,31 @@ export const StCardContent = styled.div`
   padding: 40px;
 `
 
-export const StFrom = styled.form`
+export const StForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+`
+
+export const StFormTop = styled.div`
+  display: flex;
+  gap: 20px;
+`
+
+export const StFormLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+`
+
+export const StFormRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+`
+
+export const StFormBottom = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
