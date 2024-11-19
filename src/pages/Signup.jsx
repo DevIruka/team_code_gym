@@ -10,6 +10,8 @@ import {
 } from '../styles/components/signup_style/SignupStyle'
 
 import { createClient } from '@supabase/supabase-js'
+import { useNavigate } from 'react-router-dom'
+import { signup } from '../api/users'
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -17,6 +19,7 @@ const supabase = createClient(
 )
 
 const Signup = () => {
+  const nav = useNavigate()
   const [isAgreed, setIsAgreed] = useState(false)
   const handleCheckboxChange = (e) => {
     setIsAgreed(e.target.checked)
@@ -36,25 +39,30 @@ const Signup = () => {
       alert('모든 필드를 입력해주세요.')
       return
     }
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email,
-        password,
-      })
-      if (error) throw error
-      alert('회원가입에 성공했습니다!')
-    } catch (error) {
-      console.log('회원가입 실패:', error)
+    if (password.length < 6) {
+      alert('비밀번호는 6자리 이상이어야 합니다.')
+      return
     }
-    try {
-      const { data, error } = await supabase
-        .from('users')
-        .insert([{ email, nickname }])
-        .select()
-      if (error) throw error
-    } catch (error) {
-      console.log(error)
-    }
+    signup(email, password, nickname, nav)
+    // try {
+    //   const { data, error } = await supabase.auth.signUp({
+    //     email,
+    //     password,
+    //   })
+    //   if (error) throw error
+    //   alert('회원가입에 성공했습니다!')
+    // } catch (error) {
+    //   console.log('회원가입 실패:', error)
+    // }
+    // try {
+    //   const { data, error } = await supabase
+    //     .from('users')
+    //     .insert([{ email, nickname }])
+    //     .select()
+    //   if (error) throw error
+    // } catch (error) {
+    //   console.log(error)
+    // }
     e.target.reset()
     setIsAgreed(false)
   }
