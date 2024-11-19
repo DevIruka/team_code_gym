@@ -12,7 +12,7 @@ const initialPostData = {
   title: '',
   content: '',
   code: '',
-  language: 'Python',
+  language: 'JavaScript',
 }
 
 const usePostData = () => {
