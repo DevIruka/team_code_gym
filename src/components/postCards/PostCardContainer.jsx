@@ -23,29 +23,33 @@ const PostCardContainer = ({ isHome }) => {
     return <div>포스트 없음</div>
   }
 
+  // 받아온 포스트 필터 부분
+  const filterPosts = (posts, languageState) => {
+    // 전체 선택시 모두 보여주기
+    if (languageState['All']) {
+      return posts
+    }
+
+    // 선택된 태그 찾기
+    const selected_tags = Object.keys(languageState)
+      .filter((key) => languageState[key])
+      .map((key) => key.toLowerCase())
+
+    // 선택된 태그에 해당하는 포스트 필터링
+    return posts.filter((post) => {
+      if (selected_tags.includes(post.programming_language.toLowerCase())) {
+        return true
+      }
+      return false
+    })
+  }
+
   return (
     <StyledCardContainer>
-      {posts
-        .filter((post) => {
-          if (languageState['All']) {
-            return post
-          } else {
-            const selected_tags = Object.keys(languageState)
-              .filter((key) => languageState[key]) 
-              .map((key) => key.toLowerCase())
-            
-            console.log('현재 포스트 언어', post.programming_language)
-
-            if (selected_tags.includes(post.programming_language.toLowerCase())) {
-              console.log('selected_tags', selected_tags)
-
-              return post
-            }
-          }
-        })
-        .map((post, index) => (
-          <PostCard key={index} post={post} />
-        ))}
+      {filterPosts(posts, languageState).map((post, index) => (
+        // TODO: key 부분 id로 바꿔야하는지 논의 필요
+        <PostCard key={index} post={post} />
+      ))}
     </StyledCardContainer>
   )
 }
