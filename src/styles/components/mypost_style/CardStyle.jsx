@@ -24,6 +24,21 @@ export const CardTitle = styled.h3`
   font-weight: 600;
 `
 
+export const CardContextArea = styled.div`
+  height: 30%;
+`
+
+export const CardContextWrapper = styled.div`
+  // ... 구현
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+  overflow: hidden;
+  word-break: keep-all;
+  text-overflow: ellipsis;
+`
+
 export const CardContext = styled.p`
   font-size: 16px;
   margin-bottom: 15px;

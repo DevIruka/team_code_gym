@@ -3,6 +3,8 @@ import {
   StyledCard,
   CardTitle,
   CardContext,
+  CardContextWrapper,
+  CardContextArea,
   CardCode,
   CardHeader,
   UserInfoContainer,
@@ -40,7 +42,12 @@ const PostCard = ({ post }) => {
         </UserInfoContainer>
       </CardHeader>
 
-      <CardContext>{post.content}</CardContext>
+      <CardContextArea>
+        <CardContextWrapper>
+          <CardContext>{post.content}</CardContext>
+        </CardContextWrapper>
+      </CardContextArea>
+
       <CardCode>
         <MarkdownRenderer>{`\`\`\`${post.programming_language}\n${post.code}\n\`\`\``}</MarkdownRenderer>
       </CardCode>
