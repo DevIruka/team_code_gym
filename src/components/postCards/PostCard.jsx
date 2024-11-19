@@ -27,7 +27,7 @@ const PostCard = ({ post }) => {
 
   const handleClick = () => {
     console.log(post)
-    navigate(`/detail/${post.id}`) // 해당 게시물의 id로 Detail 페이지 이동
+    navigate(`/detail/${post.post_id}`) // 해당 게시물의 id로 Detail 페이지 이동
   }
 
   const nickname = useNickname(post.user_id)

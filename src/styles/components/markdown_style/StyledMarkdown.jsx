@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const StyledMarkdown = styled.div`
+export const StyledMarkdown = styled.div`
   font-family: 'Fira Code', monospace;
   line-height: 1.5;
 
@@ -34,4 +34,23 @@ const StyledMarkdown = styled.div`
     height: 3em;
   }
 `
-export default StyledMarkdown
+
+export const StyledDetailMarkdown = styled.div`
+    font-family: 'Fira Code', monospace;
+    line-height: 1.5;
+    
+    pre {
+        border-radius: 5px;    
+        background-color: white;
+        box-sizing: border-box;
+        height:486px;
+        padding: 10px;
+        overflow: auto;
+    }
+
+    pre > code {
+        // 줄 바꿈
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+`

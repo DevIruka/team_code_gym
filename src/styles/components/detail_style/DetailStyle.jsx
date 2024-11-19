@@ -73,20 +73,24 @@ export const StContent = styled.div`
     font-family: 'Helchang', sans-serif;
     border-radius: 5px;
     box-sizing: border-box;
-    margin-bottom: 20px;
+    margin-bottom: ${(props) => {
+        switch (props.bottomMarin) {
+            case 'on':
+                return '20px';
+            default:
+                return '0px';
+        }
+    }};
     overflow:auto;
+    line-height: 1.8;
     height: ${(props) => {
         switch (props.size) {
-            case 'small':
-                return '100px';
             case 'medium':
-                return '221px';
-            case 'large':
-                return '300px';
-            case 'extraLarge':
                 return '400px';
+            case 'large':
+                return '508px';
             default:
-                return 'auto'; // 기본값
+                return 'auto';
         }
     }};
 `
