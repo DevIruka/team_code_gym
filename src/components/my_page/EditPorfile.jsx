@@ -56,29 +56,46 @@ const EditProfile = () => {
                 const { data, error } = await supabase.storage
                     .from('profile-images') // 버킷 이름
                     .upload(filePath, selectedFile);
-
+                    
                 if (error) {
                     throw new Error(error.message);
                 }
                 
-                const { publicURL, error: urlError } = supabase.storage
+                const { data : object, error: urlError } = supabase.storage
                     .from('profile-images')
-                    .getPublicUrl(filePath);
-                    console.log(publicURL);
+                    .getPublicUrl(data.path);
 
                 if (urlError) {
                     throw new Error(urlError.message);
                 }
 
-                
-                await updateProfileImageInDB(publicURL);
+                await updateProfileImageInDB(object.publicUrl);
                 alert('프로필 이미지가 성공적으로 업데이트되었습니다!');
+
+                setUser((prevUser) => ({...prevUser, profile_image: object.publicUrl,}));
             } catch (error) {
                 console.error('이미지 업로드 실패:', error.message);
                 alert('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
             }
         } else {
             alert('업로드할 이미지를 선택해주세요.');
+        }
+    };
+
+    const updateProfileImageInDB = async (url) => {
+        try {
+            const { error } = await supabase
+                .from('users')
+                .update({ profile_image: url })
+                .eq('user_id', authId);
+
+            if (error) {
+                throw new Error(error.message);
+            }
+
+            console.log('DB에서 프로필 이미지 업데이트 완료');
+        } catch (error) {
+            console.error('DB 업데이트 실패:', error.message);
         }
     };
 
