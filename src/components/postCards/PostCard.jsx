@@ -20,17 +20,18 @@ const PostCard = ({ post }) => {
   }
   //TODO: 조금 더 나은 Loading 디자인 추가할 수도??
 
-  // // 각 카드 클릭 시 detail 페이지로 이동
-  // const navigate = useNavigate()
+  // 각 카드 클릭 시 detail 페이지로 이동
+  const navigate = useNavigate()
 
-
-
+  const handleClick = () => {
+    navigate(`/detail/${post.id}`) // 해당 게시물의 id로 Detail 페이지 이동
+  }
 
   const nickname = useNickname(post.user_id)
   const profileImage = useProfileImage(post.user_id)
 
   return (
-    <StyledCard>
+    <StyledCard onClick={handleClick}>
       <CardHeader>
         <CardTitle>{post.title}</CardTitle>
         <UserInfoContainer>
