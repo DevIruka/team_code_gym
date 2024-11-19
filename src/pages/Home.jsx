@@ -1,10 +1,10 @@
-import PostCardContainer from '../components/my_post/PostCardContainer'
-import LanguageFilterBar from '../styles/components/home_style/LanguageFilterStyle'
+import HomePostContainer from '../components/home/HomePostContainer'
+import LanguageFilterBar from '../style/components/home_style/LanguageFilterStyle'
 const Home = () => {
   return (
     <div>
       <LanguageFilterBar></LanguageFilterBar>
-      <PostCardContainer></PostCardContainer>
+      <HomePostContainer></HomePostContainer>
     </div>
   )
 }

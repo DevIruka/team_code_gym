@@ -8,7 +8,7 @@ import {
 } from '../styles/components/signup_style/SignupStyle'
 import { StBtnWrapper } from '../styles/components/login_style/LoginStyle'
 import { useNavigate } from 'react-router-dom'
-import supabase from '../api/supabaseClient'
+import { login } from '../api/users'
 
 const Login = () => {
   const nav = useNavigate()
@@ -24,17 +24,7 @@ const Login = () => {
       alert('모든 필드를 입력해주세요.')
       return
     }
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      })
-      if (error) throw error
-      alert('로그인 성공!')
-      nav('/')
-    } catch (error) {
-      console.log('로그인 실패!:', error)
-    }
+    login(email, password, nav)
   }
 
   return (
