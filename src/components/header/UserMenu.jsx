@@ -5,20 +5,30 @@ import SettingsIcon from '@mui/icons-material/Settings'
 import EditIcon from '@mui/icons-material/Edit'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { useNickname } from '../../hooks/useNickname'
+import { logout } from '../../api/users'
 
 export const UserMenu = ({ onClose }) => {
+  const userId = useSelector((state) => state.userData)
+  const nickname = useNickname(userId)
   const navigate = useNavigate()
 
   const handleNavigate = (path) => {
-    if (path) navigate(path)
+    navigate(path)
+    onClose()
+  }
+
+  const handleLogout = async () => {
+    await logout()
+    navigate('/login')
     onClose()
   }
 
   return (
     <>
       <StMenuItem>
-        {/* TODO : table에서 user정보 가져오기 */}
-        <Avatar className="menu-icon" /> 김은지
+        <Avatar className="menu-icon" /> {nickname}
       </StMenuItem>
       <Divider />
       <StMenuItem onClick={() => handleNavigate('/mypage')}>
@@ -28,8 +38,7 @@ export const UserMenu = ({ onClose }) => {
         <EditIcon className="menu-icon" /> 마이포스트
       </StMenuItem>
       <Divider />
-      {/* TODO : 로그아웃 버튼 핸들러 만들기 */}
-      <StMenuItem onClick={() => handleNavigate('')}>
+      <StMenuItem onClick={handleLogout}>
         <LogoutIcon className="menu-icon" /> 로그아웃
       </StMenuItem>
     </>
