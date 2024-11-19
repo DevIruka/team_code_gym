@@ -12,6 +12,18 @@ export const StIconWrapper = styled.div`
   }
 `
 
+export const UserProfileImg = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ddd;
+  filter: drop-shadow(0 0 3px #fffb00) drop-shadow(0 0 5px #ffcc00)
+    drop-shadow(0 0 8px #ffaa00);
+`
+
 export const StMenu = styled(Menu)`
   .MuiPaper-root {
     overflow: visible;
