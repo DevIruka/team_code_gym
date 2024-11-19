@@ -1,9 +1,10 @@
 import HomePostContainer from '../components/home/HomePostContainer'
-import LanguageFilterBar from '../style/components/home_style/LanguageFilterStyle'
+import LanguageFilterBar from '../components/home/LanguageFilterBar'
+
 const Home = () => {
   return (
     <div>
-      <LanguageFilterBar></LanguageFilterBar>
+      <LanguageFilterBar />
       <HomePostContainer></HomePostContainer>
     </div>
   )
