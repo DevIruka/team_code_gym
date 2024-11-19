@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import { login } from '../api/users'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { isLogIn } from '../redux/slices/loginSlice'
 
 const useLogin = () => {
   const nav = useNavigate()
-  const loginData = useSelector((state) => state.login)
   const dispatch = useDispatch()
   const [emptyError, setEmptyError] = useState(false)
   const resetErrors = (errorType) => {

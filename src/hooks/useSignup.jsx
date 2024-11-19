@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { signup } from '../api/users'
 
 const useSignup = () => {
