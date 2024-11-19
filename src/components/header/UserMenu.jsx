@@ -21,7 +21,7 @@ export const UserMenu = ({ onClose }) => {
 
   const handleLogout = async () => {
     await logout()
-    navigate('/')
+    navigate('/login')
     onClose()
   }
 
