@@ -8,11 +8,10 @@ import {
 const InputContainerNickname = () => {
   return (
     <StInputWrapper>
-      <StLabel>유저 닉네임</StLabel>
+      <StLabel>User Name</StLabel>
       <StInput
         type="text"
         name="nickname"
-        placeholder="유저 닉네임을 입력해주세요."
       />
     </StInputWrapper>
   )
@@ -21,8 +20,8 @@ const InputContainerNickname = () => {
 const InputContainerEmail = () => {
   return (
     <StInputWrapper>
-      <StLabel>이메일</StLabel>
-      <StInput type="email" name="email" placeholder="이메일을 입력해주세요." />
+      <StLabel>E-mail</StLabel>
+      <StInput type="email" name="email" />
     </StInputWrapper>
   )
 }
@@ -30,11 +29,10 @@ const InputContainerEmail = () => {
 const InputContainerPassword = () => {
   return (
     <StInputWrapper>
-      <StLabel>비밀번호</StLabel>
+      <StLabel>Password</StLabel>
       <StInput
         type="password"
         name="password"
-        placeholder="비밀번호를 입력해주세요"
       />
     </StInputWrapper>
   )
@@ -49,7 +47,7 @@ const InputContainerCheck = ({ isAgreed, handleCheckboxChange }) => {
         checked={isAgreed}
         onChange={handleCheckboxChange}
       />
-      <StLabel>동의함</StLabel>
+      <StLabel>Agree</StLabel>
     </StCheckWrapper>
   )
 }

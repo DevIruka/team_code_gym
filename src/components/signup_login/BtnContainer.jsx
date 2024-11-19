@@ -4,9 +4,9 @@ import { Stbtn } from '../../styles/components/signup_style/SignupStyle'
 const BtnContainer = ({ signUpHandler }) => {
   return (
     <StBtnWrapper>
-      <Stbtn>로그인</Stbtn>
+      <Stbtn>Login</Stbtn>
       <Stbtn type="button" onClick={signUpHandler}>
-        회원가입
+        Sign Up
       </Stbtn>
     </StBtnWrapper>
   )
