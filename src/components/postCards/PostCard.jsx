@@ -26,6 +26,7 @@ const PostCard = ({ post }) => {
   const navigate = useNavigate()
 
   const handleClick = () => {
+    console.log(post)
     navigate(`/detail/${post.id}`) // 해당 게시물의 id로 Detail 페이지 이동
   }
 
