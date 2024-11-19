@@ -1,19 +1,40 @@
 import React from 'react'
-import {StyledLanguageFilter, StyledLanguageTag } from '../../styles/components/home_style/LanguageFilterStyle'
+import {
+  StyledLanguageFilter,
+  StyledLanguageTag,
+} from '../../styles/components/home_style/LanguageFilterStyle'
+import { useDispatch, useSelector } from 'react-redux'
+import { removeTag, selectTag } from '../../redux/slices/languageFilterSlice'
 
 const LanguageFilterBar = () => {
-    const tag_list =
-        ['JavaScript', 'Java', 'Python', 'C++', 'C#'];
-    return <StyledLanguageFilter>
-        {tag_list.map((tag, i) => {
-            // TODO
-            // key가 따로 없어서 index로 하기는 했으나
-            // 추후에 바꾸어야 합니다
-            return <StyledLanguageTag key={i}>
-                {`${tag}`}
-            </StyledLanguageTag>
+  const dispatch = useDispatch()
+  const languageState = useSelector((state) => state.languageFilter)
+  const tag_list = Object.keys(languageState)
+
+  const tagButtonHandler = (tag) => {
+    if (languageState[tag]) {
+      dispatch(removeTag(tag))
+    } else {
+      dispatch(selectTag(tag))
+    }
+	}
+	
+  return (
+    <StyledLanguageFilter>
+      {tag_list.map((tag) => {
+        const isActive = languageState[tag]
+        return (
+          <StyledLanguageTag
+            key={tag}
+            onClick={() => tagButtonHandler(tag)}
+            className={isActive ? 'active' : ''}
+          >
+            {`${tag}`}
+          </StyledLanguageTag>
+        )
       })}
-  </StyledLanguageFilter>
+    </StyledLanguageFilter>
+  )
 }
 
 export default React.memo(LanguageFilterBar)
