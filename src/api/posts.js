@@ -28,7 +28,6 @@ export const getPostsByUserId = async (userId) => {
     throw error
   }
 }
-
 export const createPost = async (postData) => {
   try {
     const { data } = await supabase
