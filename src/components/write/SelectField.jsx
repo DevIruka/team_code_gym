@@ -2,7 +2,7 @@ import React from 'react'
 import {
   StLabel,
   StSelect,
-} from '../../styles/components/write_style/selectFieldStyle'
+} from '../../styles/components/write_style/SelectFieldStyle'
 
 const SelectField = ({ id, name, value, onChange, options, label }) => {
   return (

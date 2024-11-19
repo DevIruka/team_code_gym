@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const StLabel = styled.label`
   display: block;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--yellow);
   margin-bottom: 8px;
 `
