@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import supabase from '../api/supabaseClient'
+import { getAllPosts, getPostsByUserId } from '../api/posts'
 
 // home과 my post 페이지를 위한 훅
 // 역할 정리:
@@ -19,7 +19,7 @@ const useFetchPosts = (isHome) => {
 
   const userId = useSelector((state) => state.userData) // 아이디 받음
 
-  console.log('아이디:', userId)
+  // console.log('아이디:', userId)
   // 테스트용
 
   useEffect(() => {
@@ -27,26 +27,17 @@ const useFetchPosts = (isHome) => {
       setLoading(true)
       setError(null)
       try {
-        const query = supabase
-          .from('posts')
-          .select('title, content, code, programming_language')
-
-        let data, error
+        let data
 
         if (isHome) {
-          ;({ data, error } = await query)
+          data = await getAllPosts()
         } else if (userId) {
-          ;({ data, error } = await query.eq('user_id', userId))
-          console.log('내꺼', data)
-        }
-
-        if (error) {
-          throw error
+          data = await getPostsByUserId(userId)
         }
 
         setPosts(data || [])
       } catch (err) {
-        console.error('Supabase 에러:', err.message)
+        console.error('useFetchPosts 에러:', err.message)
         setError(err.message)
       } finally {
         setLoading(false)
