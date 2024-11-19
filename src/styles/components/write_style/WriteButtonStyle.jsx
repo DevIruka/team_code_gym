@@ -2,8 +2,8 @@ import styled from 'styled-components'
 
 export const StWriteButton = styled.button`
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: 30px;
+  bottom: 50px;
   background-color: var(--yellow);
   border-radius: 50%;
   border: none;
