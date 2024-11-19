@@ -20,7 +20,7 @@ export const StyledCard = styled.div`
 `
 
 export const CardTitle = styled.h3`
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   margin-bottom: 15px;
 `
@@ -35,6 +35,33 @@ export const CardContext = styled.p`
 export const CardCode = styled.div`
   border-radius: 8px;
   margin-top: 10px;
-  /* TODO: 넘치는 부분 ... 처리 */
   overflow: hidden;
+`
+
+export const CardHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const UserInfoContainer = styled.div`
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`
+export const CardNickname = styled.div`
+  font-size: 20px;
+`
+export const CardProfileImg = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-image: url(${(props) => props.src});
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #ddd;
 `

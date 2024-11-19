@@ -22,3 +22,17 @@ export const getUserNickname = async (id) => {
     return null
   }
 }
+
+export const getUserProfile = async (id) => {
+  try {
+    const { data: user } = await supabase
+      .from('users')
+      .select('profile_image')
+      .eq('user_id', id)
+      .single()
+    return user.profile_image
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
