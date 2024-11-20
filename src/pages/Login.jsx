@@ -6,11 +6,20 @@ import { useSelector } from 'react-redux'
 import { ToastContainer } from 'react-toastify'
 
 const Login = () => {
-  const { signUpHandler, loginHandler, emptyError, resetErrors } = useLogin()
+  const {
+    signUpHandler,
+    loginHandler,
+    emptyError,
+    loginError,
+    setloginError,
+    resetErrors,
+  } = useLogin()
   const loginData = useSelector((state) => state.login)
   useToastNotifications({
     loginData,
     emptyError,
+    loginError,
+    setloginError,
     resetErrors,
   })
   return (
