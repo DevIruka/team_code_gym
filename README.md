@@ -48,6 +48,21 @@
 - 회원가입: 닉네임, 이메일, 비밀번호를 입력하여 간단히 계정을 생성할 수 있습니다.
 - 로그인: 기존에 가입한 이메일과 비밀번호로 안전하게 로그인할 수 있습니다.
 
+<details>
+<summary>미리보기</summary>
+<div markdown="1">
+
+* 회원가입
+![회원 가입 기능](https://github.com/user-attachments/assets/d28bffa7-b741-4640-9c4e-efebcaaec4ee)
+
+* 로그인
+![로그인 기능](https://github.com/user-attachments/assets/9c1af48b-a2af-47c4-bebc-d0dc02cec830)
+
+
+<br>
+</div>
+</details>
+
 ### 📝 회원 정보 수정
 
 - 회원은 프로필 관리 페이지에서 이메일 변경과 프로필 사진 업데이트가 가능합니다.
@@ -74,7 +89,7 @@
 
 ### Custom Hook 활용
 
-**포스트 가져오기**, **로그인 상태 관리** 등 반복적으로 사용되는 로직을 **Custom Hook**으로 분리하여 구현했습니다. 이 접근 방식을 통해 코드의 재사용성을 높이고, 컴포넌트의 로직을 단순화하여 유지보수를 용이하게 만들었습니다.
+**포스트 가져오기**, **로그인 상태 관리** 등 반복적으로 사용되는 로직을 **Custom Hook**으로 분리하여 구현했습니다.  이 접근 방식을 통해 코드의 재사용성을 높이고, 컴포넌트의 로직을 단순화하여 유지보수를 용이하게 만들었습니다.
 
 ### react-markdown 라이브러리 사용
 
@@ -141,8 +156,78 @@
 ![Supabase](https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase&logoColor=white)
 
 ## 와이어프레임
+### 전체 와이어프레임
+![image](https://github.com/user-attachments/assets/46abacf7-da30-42c9-b101-c5362b75a7b9)
 
-(와이어프레임 사진 첨부)
+<details>
+<summary>회원가입 & 로그인</summary>
+<div markdown="1">
+
+![SignUpLogin](https://github.com/user-attachments/assets/ee7c4346-0064-4725-818d-653611bf265e)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>홈 페이지</summary>
+<div markdown="1">
+
+![Home](https://github.com/user-attachments/assets/3635df14-1b5e-43ae-a583-f52ea371a4eb)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>마이 포스트</summary>
+<div markdown="1">
+
+![MyPage](https://github.com/user-attachments/assets/ad05645f-5f36-4618-96bc-4938d778873a)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>디테일 페이지</summary>
+<div markdown="1">
+
+![Details](https://github.com/user-attachments/assets/b629823f-2e98-465e-ad25-d6040aab6ed4)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>마이 페이지</summary>
+<div markdown="1">
+
+![MyPage](https://github.com/user-attachments/assets/e9f2ac62-7255-4843-a4a9-bb0a9e2e1eb5)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>글 쓰기 페이지</summary>
+<div markdown="1">
+
+![Write](https://github.com/user-attachments/assets/728b8a95-86e8-4db5-82eb-d788038f474a)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>글 수정 페이지</summary>
+<div markdown="1">
+
+![Update](https://github.com/user-attachments/assets/b701779b-618b-4dc0-a18d-bbac1b8efc08)
+
+<br>
+</div>
+</details>
 
 ## ERD
 
