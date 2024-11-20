@@ -1,11 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import { login } from '../api/users'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 
 const useLogin = () => {
   const nav = useNavigate()
-  const dispatch = useDispatch()
   let loginData
   const [emptyError, setEmptyError] = useState(false)
   const [loginError, setloginError] = useState(false)
@@ -22,7 +20,7 @@ const useLogin = () => {
     }
   }
   const signUpHandler = () => {
-    nav('/')
+    nav('/signup')
   }
   const loginHandler = async (e) => {
     e.preventDefault()

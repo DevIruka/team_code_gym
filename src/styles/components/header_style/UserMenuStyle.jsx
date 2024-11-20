@@ -6,7 +6,7 @@ export const StMenuItem = styled(MenuItem)`
     margin-right: 8px;
   }
 
-  &:first-child {
+  .menu-icon.profile {
     pointer-events: none;
     cursor: default;
   }

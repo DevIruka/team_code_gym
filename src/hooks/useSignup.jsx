@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { signup } from '../api/users'
 
 const useSignup = () => {
-  const [signupSuccess, setsignupSuccess] = useState()
+  const [signupSuccess, setSignupSuccess] = useState(null)
   const [checkError, setCheckError] = useState(false)
   const [emptyError, setEmptyError] = useState(false)
   const [passwordError, setPasswordError] = useState(false)
@@ -44,11 +44,12 @@ const useSignup = () => {
       setPasswordError(true)
       return
     }
-    signup(email, password, nickname)
+    const result = await signup(email, password, nickname)
+    setSignupSuccess(result.success)
     e.target.reset()
     setIsAgreed(false)
-    setsignupSuccess(true)
   }
+
   return {
     handleCheckboxChange,
     onSubmitHandler,

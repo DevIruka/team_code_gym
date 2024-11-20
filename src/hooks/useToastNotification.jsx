@@ -16,11 +16,12 @@ const useToastNotifications = ({
 
   useEffect(() => {
     if (signupSuccess) {
-      toast.success('회원가입에 성공하였습니다. 로그인 페이지로 이동합니다.', {
+      console.log(signupSuccess)
+      toast.success('회원가입에 성공하였습니다.', {
         autoClose: 2000,
       })
       setTimeout(() => {
-        nav('/login')
+        nav('/')
       }, 2500)
     }
     if (loginData) {
