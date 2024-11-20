@@ -40,6 +40,7 @@ const PostCardContainer = ({ isHome }) => {
     })
   }
 
+  // 포스트 예외처리
   if (loading) {
     return <div>포스트 로딩중 ...</div>
   }
@@ -55,9 +56,8 @@ const PostCardContainer = ({ isHome }) => {
   return (
     <StyledCardContainer>
       {filterPosts(localPosts, languageState).map((post, index) => (
-        // TODO: key 부분 id로 바꿔야하는지 논의 필요
         <PostCard
-          key={index}
+          key={post.post_id}
           post={post}
           isHome={isHome}
           onDelete={handleDelete}

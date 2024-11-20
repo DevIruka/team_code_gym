@@ -44,6 +44,7 @@ export const deletePostById = async (postId) => {
   }
 }
 
+// 포스트 생성
 export const createPost = async (postData) => {
   try {
     const { data } = await supabase
@@ -99,5 +100,20 @@ export const updatePost = async (postId, postData) => {
     return data
   } catch (error) {
     console.error(error.message)
+  }
+}
+
+// 검색된 포스트 가져오기
+export const getSearchedPost = async (query) => {
+  try {
+    const { data, error } = await supabase
+      .from('posts')
+      .select()
+      .textSearch('title', query)
+    if (error) throw error
+    return data
+  } catch (error) {
+    console.error('검색된 포스트 가져오기 실패:', error.message)
+    throw error
   }
 }
