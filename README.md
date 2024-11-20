@@ -48,6 +48,21 @@
 - 회원가입: 닉네임, 이메일, 비밀번호를 입력하여 간단히 계정을 생성할 수 있습니다.
 - 로그인: 기존에 가입한 이메일과 비밀번호로 안전하게 로그인할 수 있습니다.
 
+<details>
+<summary>미리보기</summary>
+<div markdown="1">
+
+* 회원가입
+![회원 가입 기능](https://github.com/user-attachments/assets/d28bffa7-b741-4640-9c4e-efebcaaec4ee)
+
+* 로그인
+![로그인 기능](https://github.com/user-attachments/assets/9c1af48b-a2af-47c4-bebc-d0dc02cec830)
+
+
+<br>
+</div>
+</details>
+
 ### 📝 회원 정보 수정
 
 - 회원은 프로필 관리 페이지에서 이메일 변경과 프로필 사진 업데이트가 가능합니다.
@@ -70,31 +85,23 @@
 
 ### Redux Toolkit
 
-모든 팀원의 동의하에 여러 컴포넌트에서 공유되는 상태 관리를 위해 **Redux Toolkit (RTK)**을 적용하기로 결정했습니다.  
-각 공유 상태마다 **slice 파일**을 생성하고, 그 안에 관련된 리듀서 함수를 작성해 체계적으로 관리했습니다. 이를 통해 코드의 가독성을 높이고 상태 관리의 복잡성을 줄였습니다.
+모든 팀원의 동의하에 여러 컴포넌트에서 공유되는 상태 관리를 위해 **Redux Toolkit (RTK)**을 적용하기로 결정했습니다. 각 공유 상태마다 **slice 파일**을 생성하고, 그 안에 관련된 리듀서 함수를 작성해 체계적으로 관리했습니다. 이를 통해 코드의 가독성을 높이고 상태 관리의 복잡성을 줄였습니다.
 
 ### Custom Hook 활용
 
-**포스트 가져오기**, **로그인 상태 관리** 등 반복적으로 사용되는 로직을 **Custom Hook**으로 분리하여 구현했습니다.  
-이 접근 방식을 통해 코드의 재사용성을 높이고, 컴포넌트의 로직을 단순화하여 유지보수를 용이하게 만들었습니다.
+**포스트 가져오기**, **로그인 상태 관리** 등 반복적으로 사용되는 로직을 **Custom Hook**으로 분리하여 구현했습니다.  이 접근 방식을 통해 코드의 재사용성을 높이고, 컴포넌트의 로직을 단순화하여 유지보수를 용이하게 만들었습니다.
 
 ### react-markdown 라이브러리 사용
 
-포스트에서 **코드를 언어별로 구분하여 깔끔하게 표시**할 필요가 있었습니다.  
-이 요구를 충족하기 위해 **react-markdown** 라이브러리를 도입하여 **다양한 프로그래밍 언어의 문법을 지원**하는 기능을 구현했습니다.  
-이를 통해 사용자 경험을 개선하고, 코드 가독성을 높였습니다.
+포스트에서 **코드를 언어별로 구분하여 깔끔하게 표시**할 필요가 있었습니다. 이 요구를 충족하기 위해 **react-markdown** 라이브러리를 도입하여 **다양한 프로그래밍 언어의 문법을 지원**하는 기능을 구현했습니다. 이를 통해 사용자 경험을 개선하고, 코드 가독성을 높였습니다.
 
 ### Supabase Database 사용
 
-**회원가입, 로그인, 로그아웃** 등 인증과 유저 데이터 관리를 위해 **Supabase Database**를 활용했습니다.  
-Supabase의 간단한 API와 실시간 데이터베이스 기능을 통해 빠르고 효율적인 개발이 가능했습니다.  
-데이터 보안과 안정성 측면에서도 Supabase가 적합하다고 판단했습니다.
+**회원가입, 로그인, 로그아웃** 등 인증과 유저 데이터 관리를 위해 **Supabase Database**를 활용했습니다. Supabase의 간단한 API와 실시간 데이터베이스 기능을 통해 빠르고 효율적인 개발이 가능했습니다. 데이터 보안과 안정성 측면에서도 Supabase가 적합하다고 판단했습니다.
 
 ### toastify와 sweetalert2
 
-**유저 알림** 기능에서 깔끔하고 직관적인 UI를 제공하기 위해 **toastify**와 **sweetalert2** 라이브러리를 적용했습니다.  
-toastify는 간단한 알림 메시지를 표시하는 데 사용되었으며, sweetalert2는 사용자 입력과 관련된 알림창에서 유용하게 활용되었습니다.  
-이 두 가지 라이브러리를 통해 알림 경험을 한층 더 세련되게 만들었습니다.
+**유저 알림** 기능에서 깔끔하고 직관적인 UI를 제공하기 위해 **toastify**와 **sweetalert2** 라이브러리를 적용했습니다. toastify는 간단한 알림 메시지를 표시하는 데 사용되었으며, sweetalert2는 사용자 입력과 관련된 알림창에서 유용하게 활용되었습니다. 이 두 가지 라이브러리를 통해 알림 경험을 한층 더 세련되게 만들었습니다.
 
 ## ⏲️ 개발기간
 
@@ -149,8 +156,78 @@ toastify는 간단한 알림 메시지를 표시하는 데 사용되었으며, s
 ![Supabase](https://img.shields.io/badge/Supabase-181818?style=for-the-badge&logo=supabase&logoColor=white)
 
 ## 와이어프레임
+### 전체 와이어프레임
+![image](https://github.com/user-attachments/assets/46abacf7-da30-42c9-b101-c5362b75a7b9)
 
-(와이어프레임 사진 첨부)
+<details>
+<summary>회원가입 & 로그인</summary>
+<div markdown="1">
+
+![SignUpLogin](https://github.com/user-attachments/assets/ee7c4346-0064-4725-818d-653611bf265e)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>홈 페이지</summary>
+<div markdown="1">
+
+![Home](https://github.com/user-attachments/assets/3635df14-1b5e-43ae-a583-f52ea371a4eb)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>마이 포스트</summary>
+<div markdown="1">
+
+![MyPage](https://github.com/user-attachments/assets/ad05645f-5f36-4618-96bc-4938d778873a)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>디테일 페이지</summary>
+<div markdown="1">
+
+![Details](https://github.com/user-attachments/assets/b629823f-2e98-465e-ad25-d6040aab6ed4)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>마이 페이지</summary>
+<div markdown="1">
+
+![MyPage](https://github.com/user-attachments/assets/e9f2ac62-7255-4843-a4a9-bb0a9e2e1eb5)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>글 쓰기 페이지</summary>
+<div markdown="1">
+
+![Write](https://github.com/user-attachments/assets/728b8a95-86e8-4db5-82eb-d788038f474a)
+
+<br>
+</div>
+</details>
+
+<details>
+<summary>글 수정 페이지</summary>
+<div markdown="1">
+
+![Update](https://github.com/user-attachments/assets/b701779b-618b-4dc0-a18d-bbac1b8efc08)
+
+<br>
+</div>
+</details>
 
 ## ERD
 
@@ -191,8 +268,6 @@ team_code_gym
     └── images
 
 ```
-
-파일 설명 필요한가요?? (동공지진)
 
 ## Trouble Shooting
 
