@@ -8,10 +8,11 @@ const useToastNotifications = ({
   checkError,
   emptyError,
   passwordError,
+  loginError,
+  setloginError,
   resetErrors,
 }) => {
   const nav = useNavigate()
-
 
   useEffect(() => {
     if (signupSuccess) {
@@ -26,6 +27,7 @@ const useToastNotifications = ({
       toast.success('로그인에 성공하였습니다.', {
         autoClose: 2000,
       })
+      setloginError(false)
       setTimeout(() => {
         nav('/')
       }, 2500)
@@ -42,12 +44,17 @@ const useToastNotifications = ({
       toast.error('비밀번호는 6자리 이상이여야합니다.')
       resetErrors('passwordError')
     }
+    if (loginError) {
+      toast.error('로그인에 실패하였습니다. 비밀번호나 계정을 확인해주세요.')
+      resetErrors('loginError')
+    }
   }, [
     loginData,
     signupSuccess,
     checkError,
     emptyError,
     passwordError,
+    loginError,
     nav,
     resetErrors,
   ])
