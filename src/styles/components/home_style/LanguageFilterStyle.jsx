@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const StyledLanguageFilter = styled.div`
-  width: 100%;
   height: 1.5em;
   padding: 20px 0px 10px 40px;
 
