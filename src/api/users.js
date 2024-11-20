@@ -40,8 +40,10 @@ export const signup = async (email, password, nickname) => {
       .insert([{ email, nickname }])
       .select()
     if (error) throw error
+    return { success: true, error }
   } catch (error) {
     console.log(error)
+    return { success: false, error }
   }
 }
 
