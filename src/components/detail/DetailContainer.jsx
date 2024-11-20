@@ -1,14 +1,14 @@
-import React from 'react'
 import { StButton, StCardContent, StCardHeader, StContent, StDivLeft, StDivRight, StDivTop, StDivWrap, StH1, StSection } from "../../styles/components/detail_style/DetailStyle"
 import useFetchPosts from '../../hooks/useFetchPosts'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import MarkdownRenderer from '../markdown/MarkdownRenderer'
+import useRedirectLogin from '../../hooks/useRedirectLogin'
 
 const DetailContainer = ({ isHome }) => {
     const { posts, loading, error } = useFetchPosts(isHome)
     const params = useParams()
-    const navigate = useNavigate();
-    
+    useRedirectLogin();        
+
     if (loading) {
         return <div>포스트 로딩중 ...</div>
     }
@@ -33,7 +33,7 @@ const DetailContainer = ({ isHome }) => {
                             <StH1>
                                 Problem Title
                             </StH1>
-                            <StContent bottomMarin="on">
+                            <StContent distance="on">
                                 {post.title}
                             </StContent>
                             <StH1>
