@@ -21,11 +21,23 @@ const debounce = (func, delay) => {
 }
 
 const SearchInput = () => {
-  const query = useSelector((state) => state.searchQuery.query)
+  const [searchInput, setSearchInput] = useState('');
   const dispatch = useDispatch()
 
+  const debouncedSearch = React.useCallback(
+    debounce((value) => {
+      console.log('Debounced Query:', value)
+      dispatch(setQuery(value))
+    }, 500),
+    []
+  )
+
   const handleInputChange = (e) => {
-    dispatch(setQuery(e.target.value))
+    // input의 value도 바꿔주고
+    setSearchInput(e.target.value)
+
+    // debounce도 실행
+    debouncedSearch(e.target.value)
   }
 
   const handleSearch = (e) => {
@@ -38,7 +50,7 @@ const SearchInput = () => {
       <CiSearch className="search-icon" />
       <StSearchInputField
         type="text"
-        value={query}
+        value={searchInput}
         onChange={handleInputChange}
         placeholder="Search..."
       />
