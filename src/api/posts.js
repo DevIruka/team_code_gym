@@ -44,6 +44,7 @@ export const deletePostById = async (postId) => {
   }
 }
 
+// 포스트 생성
 export const createPost = async (postData) => {
   try {
     const { data } = await supabase

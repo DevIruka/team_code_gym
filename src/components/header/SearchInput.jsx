@@ -42,7 +42,7 @@ const SearchInput = () => {
 
   const handleSearch = (e) => {
     e.preventDefault()
-    // 엔터시 검색...
+    // 엔터시 검색...?
   }
 
   return (

@@ -32,10 +32,10 @@ const useFetchPosts = (isHome) => {
 
         if (isHome) {
           // 검색어가 있는 경우와 없는 경우로 나누는 로직 추가
-          if (query.length > 0) {
-            data = await getSearchedPost(query);
-          } else {
+          if (query === '') {
             data = await getAllPosts()
+          } else {
+            data = await getSearchedPost(query)
           }
         } else if (userId) {
           data = await getPostsByUserId(userId)
