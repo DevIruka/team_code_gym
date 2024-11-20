@@ -1,20 +1,17 @@
 import MyPostContainer from '../components/my_post/MyPostContainer'
 import MyPostUserInfo from '../components/my_post/MyPostUserInfo'
-
-import styled from 'styled-components'
+import { StyledMyPostPage } from '../../src/styles/components/mypost_style/StyledMyPostPage'
+import ToHomeButton from '../components/button/ToHomeButton'
+import ScrollToTopButton from '../components/button/ScrollToTopButton'
 
 const MyPost = () => {
   return (
     <StyledMyPostPage>
+      <ScrollToTopButton></ScrollToTopButton>
+      <ToHomeButton></ToHomeButton>
       <MyPostUserInfo></MyPostUserInfo>
       <MyPostContainer></MyPostContainer>
     </StyledMyPostPage>
   )
 }
 export default MyPost
-
-const StyledMyPostPage = styled.div`
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-`

@@ -1,18 +1,22 @@
 import React from 'react'
-import { StMenuItem } from '../../styles/components/header_style/UserMenuStyle'
+import {
+  StMenuItem,
+  UserProfileImg,
+} from '../../styles/components/header_style/UserMenuStyle'
 import { Avatar, Divider } from '@mui/material'
 import SettingsIcon from '@mui/icons-material/Settings'
 import EditIcon from '@mui/icons-material/Edit'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { useNickname } from '../../hooks/useNickname'
 import { logout } from '../../api/users'
+import { useDispatch } from 'react-redux'
+import { removeUserData } from '../../redux/slices/userDataSlice'
 
-export const UserMenu = ({ onClose }) => {
-  const userId = useSelector((state) => state.userData)
+export const UserMenu = ({ userId, profileImage, onClose }) => {
   const nickname = useNickname(userId)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleNavigate = (path) => {
     navigate(path)
@@ -21,6 +25,7 @@ export const UserMenu = ({ onClose }) => {
 
   const handleLogout = async () => {
     await logout()
+    dispatch(removeUserData())
     navigate('/login')
     onClose()
   }
@@ -28,7 +33,12 @@ export const UserMenu = ({ onClose }) => {
   return (
     <>
       <StMenuItem>
-        <Avatar className="menu-icon" /> {nickname}
+        {profileImage.includes('default') ? (
+          <Avatar className="menu-icon" />
+        ) : (
+          <UserProfileImg src={profileImage} />
+        )}
+        {nickname}
       </StMenuItem>
       <Divider />
       <StMenuItem onClick={() => handleNavigate('/mypage')}>

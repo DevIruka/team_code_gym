@@ -1,24 +1,28 @@
 import { useNavigate } from 'react-router-dom'
 import { login } from '../api/users'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-import { isLogIn } from '../redux/slices/loginSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 const useLogin = () => {
   const nav = useNavigate()
   const dispatch = useDispatch()
+  let loginData
   const [emptyError, setEmptyError] = useState(false)
+  const [loginError, setloginError] = useState(false)
   const resetErrors = (errorType) => {
     switch (errorType) {
       case 'emptyError':
         setEmptyError(false)
+        break
+      case 'loginError':
+        setloginError(false)
         break
       default:
         break
     }
   }
   const signUpHandler = () => {
-    nav('/signup')
+    nav('/')
   }
   const loginHandler = async (e) => {
     e.preventDefault()
@@ -29,9 +33,20 @@ const useLogin = () => {
       setEmptyError(true)
       return
     }
-    login(email, password, nav)
-    dispatch(isLogIn())
+    const result = await login(email, password, nav)
+    loginData = result.success
+    if (!loginData) {
+      setloginError(true)
+    }
   }
-  return { signUpHandler, loginHandler, emptyError, resetErrors }
+  return {
+    signUpHandler,
+    loginHandler,
+    emptyError,
+    loginError,
+    setloginError,
+    resetErrors,
+    loginData,
+  }
 }
 export default useLogin
