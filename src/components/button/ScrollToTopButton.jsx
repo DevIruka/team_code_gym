@@ -30,7 +30,7 @@ const ScrollToTopButton = () => {
 
   return (
     isVisible && (
-      <StyledFloatingButton left="30px" onClick={scrollToTop}>
+      <StyledFloatingButton onClick={scrollToTop}>
         <ArrowUpwardIcon />
       </StyledFloatingButton>
     )
