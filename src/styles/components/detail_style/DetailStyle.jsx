@@ -81,7 +81,7 @@ export const StContent = styled.div`
                 return '0px';
         }
     }};
-    overflow:auto;
+    overflow:hidden;
     line-height: 1.8;
     height: ${(props) => {
         switch (props.size) {

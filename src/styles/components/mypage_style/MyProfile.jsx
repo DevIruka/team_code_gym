@@ -11,9 +11,9 @@ export const ProfileWrap = styled.div`
 
 export const StyledProfile = styled.div`
     width : 500px;
-    background-color: var(--gray);
+    background-color: #222;
     border-radius: 8px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 10px rgba(255, 234, 0, 0.8), 0 0 20px rgba(255, 234, 0, 0.6);
     padding: 20px;
     font-size: 14px;
     display: flex;
@@ -30,8 +30,8 @@ export const ProfileTitle = styled.h3`
 export const ProfileContext = styled.div`
     padding: 40px;
     border-radius: 8px;
-    background-color: #fff;
-    color: #000;
+    background-color: #282c34;
+    color: #fff;
     font-size: 16px;
     line-height: 1.5;
     text-align: center;
@@ -60,10 +60,13 @@ export const ProfileNickname = styled.p`
 
 export const ProfileInputWrap = styled.div`
     text-align: left;
+    margin-bottom:20px;
 `;
 
 export const ProfileInput = styled.input`
-    border: 1px solid #bbb;
+    background-color: #222;
+    border: 1px solid #3c3d37;
+    color:#fff;
     border-radius: 4px;
     width: 100%;
     padding: 8px;

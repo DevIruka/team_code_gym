@@ -4,17 +4,24 @@ import { useNavigate, useParams } from 'react-router-dom'
 import MarkdownRenderer from '../markdown/MarkdownRenderer'
 import useRedirectLogin from '../../hooks/useRedirectLogin'
 import useDeletePost from "../../hooks/useDeletePost"
+import useLocalPosts from "../../hooks/useLocalPosts"
+import { useSelector } from "react-redux"
 
 const DetailContainer = ({ isHome }) => {
     const { posts, loading, error } = useFetchPosts(isHome)
+    const authUserId = useSelector((state) => state.userData);
     const params = useParams()
     const navigate = useNavigate();
-    useRedirectLogin();    
-    
+    useRedirectLogin();
+
+    const { deletePost } = useLocalPosts(posts)
     const handleDelete = useDeletePost((postId) => {            
         deletePost(postId) 
         navigate(-1)
     })
+    const handleEdit = (postId) => {
+        navigate(`/update/${postId}`)
+    }
 
     if (loading) {
         return <div>포스트 로딩중 ...</div>
@@ -28,6 +35,7 @@ const DetailContainer = ({ isHome }) => {
     return <div>포스트 없음</div>
     }
     const post = posts.find(post => post.post_id === params.id)
+    const isPostOwner = authUserId === post.user_id;
     return (
         <StSection>
             <StCardHeader>
@@ -71,8 +79,12 @@ const DetailContainer = ({ isHome }) => {
                     </StDivTop>
                     <StBtnWrap>
                         <StButton onClick={() => navigate(-1)}>Back</StButton>
-                        <StButton >Edit</StButton>
-                        <StButton onClick={() => handleDelete(post.post_id)}>Delete</StButton>
+                        {isPostOwner && (
+                            <>
+                                <StButton onClick={() => handleEdit(post.post_id)}>Edit</StButton>
+                                <StButton onClick={() => handleDelete(post.post_id)}>Delete</StButton>
+                            </>
+                        )}
                     </StBtnWrap>
                 </StDivWrap>
             </StCardContent>
