@@ -1,11 +1,9 @@
 import SignupForm from '../components/signup_login/SignupForm'
-import Header from '../components/signup_login/Header'
 import useSignup from '../hooks/useSignup'
 import { ToastContainer } from 'react-toastify'
 import useToastNotifications from '../hooks/useToastNotification'
 
 const Signup = () => {
-
   const {
     handleCheckboxChange,
     onSubmitHandler,
@@ -24,10 +22,9 @@ const Signup = () => {
     passwordError,
     resetErrors,
   })
-  
+
   return (
     <>
-      <Header />
       <SignupForm
         onSubmitHandler={onSubmitHandler}
         handleCheckboxChange={handleCheckboxChange}
