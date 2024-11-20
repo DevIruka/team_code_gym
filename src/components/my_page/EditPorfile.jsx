@@ -73,7 +73,7 @@ const EditProfile = () => {
                 await updateProfileImageInDB(object.publicUrl);
                 alert('프로필 이미지가 성공적으로 업데이트되었습니다!');
 
-                dispatch(uploadProfileImg(object.publicUrl));
+                dispatch(uploadProfileImg({ userId: authId, profileImage: object.publicUrl }));
                 setUser((prevUser) => ({...prevUser, profile_image: object.publicUrl,}));
             } catch (error) {
                 console.error('이미지 업로드 실패:', error.message);
