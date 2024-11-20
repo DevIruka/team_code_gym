@@ -24,6 +24,7 @@ const Login = () => {
   })
   return (
     <>
+      <Header />
       <LoginForm signUpHandler={signUpHandler} loginHandler={loginHandler} />
       <ToastContainer />
     </>

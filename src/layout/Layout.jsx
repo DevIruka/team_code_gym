@@ -1,11 +1,11 @@
 import { Outlet } from 'react-router-dom'
 import Footer from './Footer'
-import Header from '../components/signup_login/Header'
+import Header from './Header'
 
-const Layout = () => {
+const Layout = ({ showSearchBar = true }) => {
   return (
     <>
-      <Header />
+      <Header showSearchBar={showSearchBar} />
       <main>
         <Outlet />
       </main>
@@ -13,4 +13,5 @@ const Layout = () => {
     </>
   )
 }
+
 export default Layout

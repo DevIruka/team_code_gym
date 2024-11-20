@@ -7,14 +7,14 @@ import {
   StLink,
 } from '../styles/layout/HeaderStyle'
 
-const Header = () => {
+const Header = ({ showSearchBar = true }) => {
   return (
     <StGnbContainer>
       <StGnbLeftWrapper>
         <StLink to="/">
           <StLogo>CodeGym</StLogo>
         </StLink>
-        <SearchInput />
+        {showSearchBar && <SearchInput />}
       </StGnbLeftWrapper>
       <UserProfile />
     </StGnbContainer>

@@ -12,18 +12,26 @@ const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Home />} />
-        <Route element={<Layout />}>
+        {/* 검색창 있는 레이아웃 */}
+        <Route element={<Layout showSearchBar={true} />}>
+          <Route path="/" element={<Home />} />
+        </Route>
+
+        {/* 검색창 없는 레이아웃 */}
+        <Route element={<Layout showSearchBar={false} />}>
           <Route path="/mypost" element={<MyPost />} />
           <Route path="/detail/:id" element={<Detail />} />
           <Route path="/mypage" element={<MyPage />} />
           <Route path="/write" element={<Write />} />
           <Route path="/update/:id" element={<Write />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
         </Route>
+
+        {/* 별도의 페이지 */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   )
 }
+
 export default Router
