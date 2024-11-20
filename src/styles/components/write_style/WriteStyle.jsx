@@ -5,7 +5,7 @@ export const StFormWrapper = styled.section`
   flex-direction: column;
   width: 80%;
   background-color: #181c14;
-  margin: 40px auto;
+  margin: 40px auto 80px;
   border-radius: 10px;
   border: 2px solid var(--yellow);
   box-shadow: 0 4px 6px rgba(255, 215, 0, 0.5);
