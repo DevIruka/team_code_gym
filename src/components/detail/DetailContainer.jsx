@@ -1,13 +1,20 @@
-import { StButton, StCardContent, StCardHeader, StContent, StDivLeft, StDivRight, StDivTop, StDivWrap, StH1, StSection } from "../../styles/components/detail_style/DetailStyle"
+import { StBtnWrap, StButton, StCardContent, StCardHeader, StContent, StDivLeft, StDivRight, StDivTop, StDivWrap, StH1, StSection } from "../../styles/components/detail_style/DetailStyle"
 import useFetchPosts from '../../hooks/useFetchPosts'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import MarkdownRenderer from '../markdown/MarkdownRenderer'
 import useRedirectLogin from '../../hooks/useRedirectLogin'
+import useDeletePost from "../../hooks/useDeletePost"
 
 const DetailContainer = ({ isHome }) => {
     const { posts, loading, error } = useFetchPosts(isHome)
     const params = useParams()
-    useRedirectLogin();        
+    const navigate = useNavigate();
+    useRedirectLogin();    
+    
+    const handleDelete = useDeletePost((postId) => {            
+        deletePost(postId) 
+        navigate(-1)
+    })
 
     if (loading) {
         return <div>포스트 로딩중 ...</div>
@@ -62,7 +69,11 @@ const DetailContainer = ({ isHome }) => {
                             </StContent>
                         </StDivLeft>
                     </StDivTop>
-                    <StButton onClick={() => navigate(-1)}>Back</StButton>
+                    <StBtnWrap>
+                        <StButton onClick={() => navigate(-1)}>Back</StButton>
+                        <StButton >Edit</StButton>
+                        <StButton onClick={() => handleDelete(post.post_id)}>Delete</StButton>
+                    </StBtnWrap>
                 </StDivWrap>
             </StCardContent>
         </StSection>

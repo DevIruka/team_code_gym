@@ -94,8 +94,14 @@ export const StContent = styled.div`
         }
     }};
 `
+export const StBtnWrap = styled.div`
+    display: flex;
+`
 
 export const StButton = styled.button`
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
     width: 100%;
     background-color: var(--yellow);
     color: #181c14;
