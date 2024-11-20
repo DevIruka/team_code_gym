@@ -109,7 +109,7 @@ export const getSearchedPost = async (query) => {
     const { data, error } = await supabase
       .from('posts')
       .select()
-      .textSearch('title', query)
+      .ilike('title', `%${query}%`)
     if (error) throw error
     return data
   } catch (error) {
