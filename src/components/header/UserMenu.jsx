@@ -10,10 +10,13 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import { useNavigate } from 'react-router-dom'
 import { useNickname } from '../../hooks/useNickname'
 import { logout } from '../../api/users'
+import { useDispatch } from 'react-redux'
+import { removeUserData } from '../../redux/slices/userDataSlice'
 
 export const UserMenu = ({ userId, profileImage, onClose }) => {
   const nickname = useNickname(userId)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleNavigate = (path) => {
     navigate(path)
@@ -22,6 +25,7 @@ export const UserMenu = ({ userId, profileImage, onClose }) => {
 
   const handleLogout = async () => {
     await logout()
+    dispatch(removeUserData())
     navigate('/login')
     onClose()
   }
