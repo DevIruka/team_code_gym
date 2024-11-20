@@ -1,7 +1,7 @@
 import InputField from '../components/write/InputField'
 import SelectField from '../components/write/SelectField'
 import { usePostData } from '../hooks/usePostData'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {
   StButton,
   StCardContent,
@@ -18,8 +18,9 @@ import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
 const Write = () => {
+  const { id } = useParams()
   const { postData, isSuccess, error, handleChange, handleSubmit } =
-    usePostData()
+    usePostData(id)
   const languageOptions = ['JavaScript', 'Python', 'Java', 'C++', 'C#']
   const navigate = useNavigate()
 
