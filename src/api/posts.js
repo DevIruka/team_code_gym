@@ -66,3 +66,38 @@ export const createPost = async (postData) => {
     console.error(error.message)
   }
 }
+
+// 수정할 포스트 찾기
+export const getPostByPostId = async (postId) => {
+  try {
+    const { data: post, error } = await supabase
+      .from('posts')
+      .select('*')
+      .eq('post_id', postId)
+    if (error) throw error
+    return post[0]
+  } catch (error) {
+    console.error(`해당 포스트 가져오기 실패: ${postId}:`, error.message)
+    throw error
+  }
+}
+
+// 수정할 포스트 업데이트
+export const updatePost = async (postId, postData) => {
+  try {
+    const { data } = await supabase
+      .from('posts')
+      .update({
+        created_at: postData.createdAt,
+        title: postData.title,
+        content: postData.content,
+        code: postData.code,
+        programming_language: postData.language,
+      })
+      .eq('post_id', postId)
+      .select()
+    return data
+  } catch (error) {
+    console.error(error.message)
+  }
+}
