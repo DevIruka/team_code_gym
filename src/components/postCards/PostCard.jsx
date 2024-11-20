@@ -21,10 +21,6 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 
 const PostCard = ({ post, isHome, onDelete }) => {
-  if (!post) {
-    return <div>Loading...</div> // post가 없을 경우 로딩 표시
-  }
-
   // 각 카드 클릭 시 detail 페이지로 이동
   const navigate = useNavigate()
 
