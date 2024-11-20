@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom'
 import { login } from '../api/users'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { isLogIn } from '../redux/slices/loginSlice'
 
 const useLogin = () => {
   const nav = useNavigate()
   const dispatch = useDispatch()
+  let loginData
   const [emptyError, setEmptyError] = useState(false)
   const [loginError, setloginError] = useState(false)
   const resetErrors = (errorType) => {
@@ -34,8 +34,8 @@ const useLogin = () => {
       return
     }
     const result = await login(email, password, nav)
-    const logindata = result.success
-    if (!logindata) {
+    loginData = result.success
+    if (!loginData) {
       setloginError(true)
     }
   }
@@ -46,6 +46,7 @@ const useLogin = () => {
     loginError,
     setloginError,
     resetErrors,
+    loginData,
   }
 }
 export default useLogin
