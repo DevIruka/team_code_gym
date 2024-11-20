@@ -132,7 +132,7 @@ toastify는 간단한 알림 메시지를 표시하는 데 사용되었으며, s
 (와이어프레임 사진 첨부)
 
 ## ERD
-(ERD 사진 첨부)
+![Code-Gym-ERD](https://github.com/user-attachments/assets/96f00c96-126e-4915-b422-d28078fa2271)
 
 ## 프로젝트 파일 구조
 ```
