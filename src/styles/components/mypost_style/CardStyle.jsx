@@ -2,9 +2,8 @@
 import styled from 'styled-components'
 
 export const StyledCard = styled.div`
-  background-color: var(--gray);
+  background-color: #222;
   border-radius: 8px;
-  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
   padding: 20px;
   aspect-ratio: 3 / 2;
   transition: transform 0.2s;
@@ -14,8 +13,19 @@ export const StyledCard = styled.div`
   flex-direction: column;
   overflow: hidden;
 
+  /* 노란색 네온 효과 */
+  border: 2px solid #ffea00;
+  box-shadow: 0 0 10px rgba(255, 234, 0, 0.8), 0 0 20px rgba(255, 234, 0, 0.6);
+
+  /* 카드 크기 제한 */
+  min-width: 500px; /* 최소 너비 */
+  max-width: 600px; /* 최대 너비 */
+  height: auto;
+
   &:hover {
     transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(255, 234, 0, 1),
+      /* 더 강렬한 네온 */ 0 0 30px rgba(255, 234, 0, 0.8); /* 확산 증가 */
   }
 `
 

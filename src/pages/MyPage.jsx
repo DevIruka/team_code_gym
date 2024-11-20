@@ -1,9 +1,11 @@
-import EditPorfile from "../components/my_page/EditPorfile"
+import EditPorfile from '../components/my_page/EditPorfile'
+import ToHomeButton from '../../src/components/button/ToHomeButton'
 
 const MyPage = () => {
   return (
     <div>
-        <EditPorfile />
+      <EditPorfile />
+      <ToHomeButton></ToHomeButton>
     </div>
   )
 }
