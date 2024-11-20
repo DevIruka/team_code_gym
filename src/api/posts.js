@@ -5,7 +5,7 @@ export const getAllPosts = async () => {
   try {
     const { data, error } = await supabase
       .from('posts')
-      .select('title, content, code, programming_language, user_id')
+      .select('title, content, code, programming_language, user_id, post_id')
     if (error) throw error
     return data
   } catch (error) {
@@ -19,7 +19,7 @@ export const getPostsByUserId = async (userId) => {
   try {
     const { data, error } = await supabase
       .from('posts')
-      .select('title, content, code, programming_language, user_id')
+      .select('title, content, code, programming_language, user_id, post_id')
       .eq('user_id', userId)
     if (error) throw error
     return data
