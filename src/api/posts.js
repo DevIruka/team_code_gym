@@ -50,3 +50,18 @@ export const createPost = async (postData) => {
     console.error(error.message)
   }
 }
+
+// 검색된 포스트 가져오기
+export const getSearchedPost = async (query) => {
+  try {
+    const { data, error } = await supabase
+      .from('posts')
+      .select()
+      .textSearch('title', query)
+    if (error) throw error
+    return data
+  } catch (error) {
+    console.error('검색된 포스트 가져오기 실패:', error.message)
+    throw error
+  }
+}
