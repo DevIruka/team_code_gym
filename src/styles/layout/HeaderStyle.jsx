@@ -7,6 +7,9 @@ export const StGnbContainer = styled.header`
   align-items: center;
   background-color: var(--header);
   padding: 20px 30px;
+
+  box-shadow: 0 10px 400px rgba(255, 234, 0, 0.674),
+    0 10px 300px rgba(255, 234, 0, 0.3), 0 0 200px rgba(255, 234, 0, 0.2); /* 빛 번짐 */
 `
 
 export const StGnbLeftWrapper = styled.div`

@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const StyledMarkdown = styled.div`
   font-family: 'Fira Code', monospace;
+  font-weight: 500;
   line-height: 1.5;
 
   pre {
-    background-color: white;
+    background-color: #282c34;
     padding: 10px;
     // ... 추가를 위해 조정
     position: relative;
@@ -27,7 +28,7 @@ export const StyledMarkdown = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: white;
+    background-color: #282c34;
     text-align: left;
     padding-left: 20px;
     line-height: 1.5;
@@ -36,21 +37,22 @@ export const StyledMarkdown = styled.div`
 `
 
 export const StyledDetailMarkdown = styled.div`
-    font-family: 'Fira Code', monospace;
-    line-height: 1.5;
-    
-    pre {
-        border-radius: 5px;    
-        background-color: white;
-        box-sizing: border-box;
-        height:486px;
-        padding: 10px;
-        overflow: auto;
-    }
+  font-family: 'Fira Code', monospace;
+  line-height: 1.5;
+  font-weight: 500;
 
-    pre > code {
-        // 줄 바꿈
-        white-space: pre-wrap;
-        word-break: break-word;
-    }
+  pre {
+    border-radius: 5px;
+    background-color: #282c34;
+    box-sizing: border-box;
+    height: 486px;
+    padding: 10px;
+    overflow: auto;
+  }
+
+  pre > code {
+    // 줄 바꿈
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
 `
