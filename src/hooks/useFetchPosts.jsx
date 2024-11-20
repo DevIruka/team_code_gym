@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { getAllPosts, getPostsByUserId } from '../api/posts'
+import { getAllPosts, getPostsByUserId, getSearchedPost } from '../api/posts'
 
 // home과 my post 페이지를 위한 훅
 // 역할 정리:
@@ -16,6 +16,7 @@ const useFetchPosts = (isHome) => {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const query = useSelector((state) => state.searchQuery.query)
 
   const userId = useSelector((state) => state.userData) // 아이디 받음
 
@@ -30,7 +31,12 @@ const useFetchPosts = (isHome) => {
         let data
 
         if (isHome) {
-          data = await getAllPosts()
+          // 검색어가 있는 경우와 없는 경우로 나누는 로직 추가
+          if (query === '') {
+            data = await getAllPosts()
+          } else {
+            data = await getSearchedPost(query)
+          }
         } else if (userId) {
           data = await getPostsByUserId(userId)
         }
@@ -46,7 +52,7 @@ const useFetchPosts = (isHome) => {
     }
 
     fetchPosts()
-  }, [isHome, userId])
+  }, [isHome, userId, query])
   // home페이지에서 myPage로 바뀔때, userId 바뀔 때 상태 관리해줌.
 
   return { posts, loading, error }

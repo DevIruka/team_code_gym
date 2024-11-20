@@ -57,7 +57,7 @@ const PostCardContainer = ({ isHome }) => {
     <StyledCardContainer>
       {filterPosts(localPosts, languageState).map((post, index) => (
         <PostCard
-          key={index}
+          key={post.post_id}
           post={post}
           isHome={isHome}
           onDelete={handleDelete}
