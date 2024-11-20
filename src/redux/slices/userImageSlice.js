@@ -5,7 +5,7 @@ const initialState = {
 }
 
 const userImageSlice = createSlice({
-  name: 'useImage',
+  name: 'userImage',
   initialState,
   reducers: {
     uploadProfileImg: (state, action) => {

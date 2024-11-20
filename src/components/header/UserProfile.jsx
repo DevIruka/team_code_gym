@@ -12,6 +12,7 @@ import { IoPersonCircleOutline } from 'react-icons/io5'
 
 export const UserProfile = () => {
   const userId = useSelector((state) => state.userData)
+  console.log( useSelector((state) => state.userImage.profileImages))
   const profileImage = useProfileImage(userId)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
