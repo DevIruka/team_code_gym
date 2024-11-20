@@ -2,33 +2,53 @@ import styled from 'styled-components'
 
 export const StyledFloatingButton = styled.button`
   position: fixed;
+  left: 30px;
   bottom: 50px;
   ${({ left }) => left && `left: ${left};`}
   ${({ right }) => right && `right: ${right};`}
-  width: 60px;
-  height: 60px;
-  background-color: ${({ backgroundColor }) => backgroundColor || '#007bff'};
+  width: 50px;
+  height: 50px;
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor || 'var(--orange)'};
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
-    0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4),
-    0 0 40px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0 12px;
+  transition: background-color 300ms ease, transform 300ms ease,
+    box-shadow 300ms ease;
 
   &:hover {
-    background-color: ${({ hoverColor }) => hoverColor || '#50a1f7'};
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.9),
-      0 0 25px rgba(255, 255, 255, 0.8), 0 0 35px rgba(255, 255, 255, 0.7),
-      0 0 50px rgba(255, 255, 255, 0.5);
+    background-color: ${({ hoverColor }) => hoverColor || '#ff9513'};
+    animation: bounce 1.5s infinite;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.15);
   }
 
   & svg {
-    font-size: 26px;
+    font-size: 30px;
+  }
+
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-3px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0);
+    }
   }
 `
