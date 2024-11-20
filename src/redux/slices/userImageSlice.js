@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  profileImages: {},
+  profileImages: '',
 }
 
 const userImageSlice = createSlice({
@@ -9,8 +9,10 @@ const userImageSlice = createSlice({
   initialState,
   reducers: {
     uploadProfileImg: (state, action) => {
-      const { userId, profileImage } = action.payload
-      state.profileImages[userId] = profileImage
+      // 혹시몰라서 나둡니다.
+      // const { userId, profileImage } = action.payload
+      // state.profileImages[userId] = profileImage
+      state.profileImages = action.payload;
     },
   },
 })

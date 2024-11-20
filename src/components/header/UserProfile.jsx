@@ -12,7 +12,8 @@ import { IoPersonCircleOutline } from 'react-icons/io5'
 
 export const UserProfile = () => {
   const userId = useSelector((state) => state.userData)
-  console.log( useSelector((state) => state.userImage.profileImages))
+  const abc = useSelector((state) => state.userImage.profileImages)
+  console.log("이미지 경로 : "+abc);
   const profileImage = useProfileImage(userId)
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
