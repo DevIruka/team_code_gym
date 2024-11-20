@@ -6,6 +6,7 @@
 2. [팀소개](#팀소개)
 3. [프로젝트 계기](#프로젝트-계기)
 4. [주요기능](#주요기능)
+5. [적용 기술 및 기술적 의사결정](#적용-기술-및-기술적-의사결정)  
 5. [개발기간](#개발기간)
 6. [기술스택](#기술스택)
 7. [와이어프레임](#와이어프레임)
@@ -58,15 +59,30 @@
 - 태그 필터를 이용해 특정 언어(예: Python, Java, JavaScript, C++, C#)별로 포스트를 검색할 수 있습니다.
 
 
-## 적용 기술 및 기술적 의사결정
-### Redux TookKit
-모든 팀원의 동의하에 여러 컴포넌트에서 사용되는 상태 관리를 위해 RTK를 적용하기로 결정했습니다. 공유가 되는 상태마다 각각의 slice 파일에 리듀서 함수를 작성하고 활용하였습니다.
+## 적용 기술 및 기술적 의사결정  
+### Redux Toolkit  
+모든 팀원의 동의하에 여러 컴포넌트에서 공유되는 상태 관리를 위해 **Redux Toolkit (RTK)**을 적용하기로 결정했습니다.  
+각 공유 상태마다 **slice 파일**을 생성하고, 그 안에 관련된 리듀서 함수를 작성해 체계적으로 관리했습니다. 이를 통해 코드의 가독성을 높이고 상태 관리의 복잡성을 줄였습니다.  
 
-### Custom Hook 활용
+### Custom Hook 활용  
+**포스트 가져오기**, **로그인 상태 관리** 등 반복적으로 사용되는 로직을 **Custom Hook**으로 분리하여 구현했습니다.  
+이 접근 방식을 통해 코드의 재사용성을 높이고, 컴포넌트의 로직을 단순화하여 유지보수를 용이하게 만들었습니다.  
 
-### react-markdown 라이브러리 사용
+### react-markdown 라이브러리 사용  
+포스트에서 **코드를 언어별로 구분하여 깔끔하게 표시**할 필요가 있었습니다.  
+이 요구를 충족하기 위해 **react-markdown** 라이브러리를 도입하여 **다양한 프로그래밍 언어의 문법을 지원**하는 기능을 구현했습니다.  
+이를 통해 사용자 경험을 개선하고, 코드 가독성을 높였습니다.  
 
-### 적용 기술 4
+### Supabase Database 사용  
+**회원가입, 로그인, 로그아웃** 등 인증과 유저 데이터 관리를 위해 **Supabase Database**를 활용했습니다.  
+Supabase의 간단한 API와 실시간 데이터베이스 기능을 통해 빠르고 효율적인 개발이 가능했습니다.  
+데이터 보안과 안정성 측면에서도 Supabase가 적합하다고 판단했습니다.  
+
+### toastify와 sweetalert2  
+**유저 알림** 기능에서 깔끔하고 직관적인 UI를 제공하기 위해 **toastify**와 **sweetalert2** 라이브러리를 적용했습니다.  
+toastify는 간단한 알림 메시지를 표시하는 데 사용되었으며, sweetalert2는 사용자 입력과 관련된 알림창에서 유용하게 활용되었습니다.  
+이 두 가지 라이브러리를 통해 알림 경험을 한층 더 세련되게 만들었습니다.  
+
 
 
 ## ⏲️ 개발기간
@@ -85,7 +101,7 @@
 ### ✔️ IDE
 ![VSCode](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
-### ✔️ Framework
+### ✔️ Framework / Library
 `react": ^18.3.1` ,
 `react-dom: ^18.3.1` ,
 `react-icons: ^5.3.0` ,
@@ -145,24 +161,18 @@ team_code_gym
 │   │   └── slices
 │   ├── shared
 │   ├── styles
-│   │   ├── base
-│   │   ├── components
-│   │   │   ├── button
-│   │   │   ├── detail_style
-│   │   │   ├── header_style
-│   │   │   ├── home_style
-│   │   │   ├── login_style
-│   │   │   ├── markdown_style
-│   │   │   ├── mypage_style
-│   │   │   ├── mypost_style
-│   │   │   ├── signup_style
-│   │   │   └── write_style
-│   │   └── layout
+│   │   └── ...
 │   └── util
 └── public
     ├── fonts
     └── images
 
 ```
+파일 설명 필요한가요?? (동공지진)
 
 ## Trouble Shooting
+### yarn 버전 문제
+
+### Supabase 이미지 업로드 과정
+
+### Redux를 통한 로그인 상태 관리
