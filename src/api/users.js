@@ -1,4 +1,3 @@
-import { toast } from 'react-toastify'
 import supabase from './supabaseClient'
 
 export const login = async (email, password) => {
@@ -7,10 +6,11 @@ export const login = async (email, password) => {
       email,
       password,
     })
-    console.log('로그인 성공')
     if (error) throw error
+    return { success: true, data }
   } catch (error) {
     console.log('로그인 실패!:', error)
+    return { success: false, error: error.message }
   }
 }
 

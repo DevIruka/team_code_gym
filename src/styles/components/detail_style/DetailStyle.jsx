@@ -74,7 +74,7 @@ export const StContent = styled.div`
     border-radius: 5px;
     box-sizing: border-box;
     margin-bottom: ${(props) => {
-        switch (props.bottomMarin) {
+        switch (props.distance) {
             case 'on':
                 return '20px';
             default:
