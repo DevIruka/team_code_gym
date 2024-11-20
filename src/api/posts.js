@@ -28,6 +28,22 @@ export const getPostsByUserId = async (userId) => {
     throw error
   }
 }
+
+// 포스트 삭제
+export const deletePostById = async (postId) => {
+  try {
+    const { error } = await supabase
+      .from('posts')
+      .delete()
+      .eq('post_id', postId)
+    if (error) throw error
+    return true
+  } catch (error) {
+    console.error('포스트 삭제 실패:', error.message)
+    return false
+  }
+}
+
 export const createPost = async (postData) => {
   try {
     const { data } = await supabase
