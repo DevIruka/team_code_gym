@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react';
 import supabase from '../../api/supabaseClient';
 import { ProfileButton, ProfileContext, ProfileImgWrap, ProfileInput, ProfileInputWrap, ProfileNickname, ProfileWrap, StyledProfile } from '../../styles/components/mypage_style/MyProfile';
 import defaultProfileImage from '../../assets/images/default.jpg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { uploadProfileImg } from '../../redux/slices/userImageSlice';
 
 const EditProfile = () => {
     const [user, setUser] = useState(null);
     const [selectedFile, setSelectedFile] = useState(null); 
     const authId = useSelector((state) => state.userData); 
-
+    const dispatch = useDispatch();
     
     useEffect(() => {
         if (authId) {
@@ -72,6 +73,7 @@ const EditProfile = () => {
                 await updateProfileImageInDB(object.publicUrl);
                 alert('프로필 이미지가 성공적으로 업데이트되었습니다!');
 
+                dispatch(uploadProfileImg(object.publicUrl));
                 setUser((prevUser) => ({...prevUser, profile_image: object.publicUrl,}));
             } catch (error) {
                 console.error('이미지 업로드 실패:', error.message);
