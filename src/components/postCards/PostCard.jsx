@@ -20,9 +20,6 @@ import MarkdownRenderer from '../markdown/MarkdownRenderer'
 import { useNickname } from '../../hooks/useNickname'
 import { useProfileImage } from '../../hooks/useProfileImage'
 
-import { Favorite, FavoriteBorder } from '@mui/icons-material'
-import useLikes from '../../hooks/useLikes'
-
 import { useNavigate } from 'react-router-dom'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
@@ -45,19 +42,8 @@ const PostCard = ({ post, isHome, onDelete }) => {
     onDelete(post.post_id)
   } // 삭제 기능
 
-  const handleLike = (e) => {
-    e.stopPropagation()
-    toggleLike()
-  }
-
   const nickname = useNickname(post.user_id)
   const profileImage = useProfileImage(post.user_id)
-
-  // 좋아요 훅 사용
-  const { likesCount, isLiked, toggleLike } = useLikes(
-    post.post_id,
-    post.user_id
-  )
 
   return (
     <StyledCard onClick={handleClick}>
@@ -81,10 +67,8 @@ const PostCard = ({ post, isHome, onDelete }) => {
 
       {!isHome && (
         <CardActions>
-          <ActionButton onClick={handleLike}>
-            {isLiked ? <Favorite /> : <FavoriteBorder />} {likesCount}
-          </ActionButton>
           <ActionButtonWrapper>
+            {/* 나중에 comments와 likes  기능 추가해도 좋을 것 같습니다. */}
             <ActionButton onClick={handleEdit}>
               <EditIcon /> 수정
             </ActionButton>

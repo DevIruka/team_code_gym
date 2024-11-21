@@ -49,20 +49,20 @@ const PostCardContainer = ({ isHome }) => {
     return <div>데이터 불러오기 실패함: {error}</div>
   }
 
-  if (posts.length === 0) {
-    return <div>포스트 없음</div>
-  }
-
   return (
     <StyledCardContainer>
-      {filterPosts(localPosts, languageState).map((post, index) => (
-        <PostCard
-          key={post.post_id}
-          post={post}
-          isHome={isHome}
-          onDelete={handleDelete}
-        />
-      ))}
+      {posts.length === 0 ? (
+        <div>포스트 없음</div>
+      ) : (
+        filterPosts(localPosts, languageState).map((post) => (
+          <PostCard
+            key={post.post_id}
+            post={post}
+            isHome={isHome}
+            onDelete={handleDelete}
+          />
+        ))
+      )}
     </StyledCardContainer>
   )
 }
