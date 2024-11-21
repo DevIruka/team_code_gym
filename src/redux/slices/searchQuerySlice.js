@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const searchQuerySlice = createSlice({
-  name: 'languageFilter',
+  name: 'searchQuery',
   initialState: {
     query: '',
   },

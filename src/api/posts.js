@@ -108,8 +108,10 @@ export const getSearchedPost = async (query) => {
   try {
     const { data, error } = await supabase
       .from('posts')
-      .select()
-      .textSearch('title', query)
+      .select('*')
+      .or(
+        `title.ilike.%${query}%,content.ilike.%${query}%,nickname.ilike.%${query}%`
+      )
     if (error) throw error
     return data
   } catch (error) {
