@@ -1,6 +1,6 @@
 # CODE GYM
 
-![image](https://github.com/user-attachments/assets/79c2c266-2e16-49a2-a773-898a66eef25c)
+![codeLogo](https://github.com/user-attachments/assets/d07034c1-4e27-4679-8e90-e8c76a3f9068)
 
 ![HomePage](https://github.com/user-attachments/assets/6176dd45-283c-4321-a3c8-dd9e68b7c4f2)
 
