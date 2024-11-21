@@ -1,6 +1,8 @@
 # CODE GYM
 
-(홈페이지 혹은 로고 이미지 첨부)
+![image](https://github.com/user-attachments/assets/79c2c266-2e16-49a2-a773-898a66eef25c)
+
+![HomePage](https://github.com/user-attachments/assets/6176dd45-283c-4321-a3c8-dd9e68b7c4f2)
 
 ## 📖 목차
 
@@ -68,6 +70,16 @@
 - 프로필 사진은 로컬에서 이미지를 업로드하거나 기본 이미지로 설정할 수 있습니다.
 - 개인정보는 Supabase의 보안 정책을 따르며 안전하게 처리됩니다.
 
+<details>
+<summary>미리보기</summary>
+<div markdown="1">
+
+![Mypage](https://github.com/user-attachments/assets/a4e80b31-61cb-4fc2-9e1a-bd54cf674d9b)
+
+<br>
+</div>
+</details>
+
 ### 🖋 풀이 포스트 CRUD
 
 - Create: 로그인 상태에서 알고리즘 문제와 언어별 풀이를 작성하여 포스트를 업로드할 수 있습니다.
@@ -75,10 +87,30 @@
 - Update: 작성자는 "수정하기" 기능을 통해 포스트 내용을 수정할 수 있습니다.
 - Delete: 작성자는 "삭제하기" 기능을 통해 포스트를 삭제할 수 있습니다.
 
+<details>
+<summary>미리보기</summary>
+<div markdown="1">
+
+![Write/Edit Page](https://github.com/user-attachments/assets/f74615e2-81a4-45a7-8b50-c765702003ca)
+
+<br>
+</div>
+</details>
+
 ### 🔍 포스트 검색
 
 - Supabase.textSearch()를 활용해 키워드를 입력하여 포스트를 검색할 수 있습니다.
 - 태그 필터를 이용해 특정 언어(예: Python, Java, JavaScript, C++, C#)별로 포스트를 검색할 수 있습니다.
+
+<details>
+<summary>미리보기</summary>
+<div markdown="1">
+
+![Search](https://github.com/user-attachments/assets/14c9c7a2-476b-4aa4-ae7a-000261d38ccb)
+
+<br>
+</div>
+</details>
 
 ## 적용 기술 및 기술적 의사결정
 
@@ -232,7 +264,7 @@
 
 ## ERD
 
-![Code-Gym-ERD](https://github.com/user-attachments/assets/96f00c96-126e-4915-b422-d28078fa2271)
+![ERD](https://github.com/user-attachments/assets/b7096e26-14db-4e65-823b-ad736dd9e1a2)
 
 ## 프로젝트 파일 구조
 
