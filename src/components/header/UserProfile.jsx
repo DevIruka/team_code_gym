@@ -8,13 +8,22 @@ import { IconButton, MenuList } from '@mui/material'
 import { UserMenu } from './UserMenu'
 import { useSelector } from 'react-redux'
 import { IoPersonCircleOutline } from 'react-icons/io5'
+import { useProfileImage } from '../../hooks/useProfileImage'
 
 export const UserProfile = () => {
   const userId = useSelector((state) => state.userData)
-  const profileImage = useSelector(
-    (state) =>
-      state.userImage.profileImages[userId] || '/images/default-profile.png'
-  )
+
+  // const profileImage = useSelector(
+  //   (state) =>
+  //     state.userImage.profileImages[userId] || '/images/default-profile.png'
+  // )
+
+  const profileImage = useProfileImage(userId);
+
+
+  console.log('여기에요 여기', profileImage)
+  
+  
   const [anchorEl, setAnchorEl] = useState(null)
   const open = Boolean(anchorEl)
 

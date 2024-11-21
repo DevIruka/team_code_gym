@@ -3,8 +3,6 @@ import { FaPencilAlt } from 'react-icons/fa'
 import { StWriteButton } from '../styles/components/write_style/WriteButtonStyle'
 import { useNavigate } from 'react-router-dom'
 import ScrollToTopButton from '../components/button/ScrollToTopButton'
-import Header from '../layout/Header'
-import Footer from '../layout/Footer'
 
 import LanguageFilterBar from '../components/home/LanguageFilterBar'
 
@@ -19,7 +17,6 @@ const Home = () => {
   return (
     <>
       <div>
-        <Header />
         <LanguageFilterBar />
         <HomePostContainer></HomePostContainer>
       </div>
@@ -27,7 +24,6 @@ const Home = () => {
         <FaPencilAlt size={40} />
       </StWriteButton>
       <ScrollToTopButton></ScrollToTopButton>
-      <Footer />
     </>
   )
 }

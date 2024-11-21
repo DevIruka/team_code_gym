@@ -11,11 +11,18 @@ import {
   CardNickname,
   CardProfileImg,
 } from '../../styles/components/mypost_style/CardStyle'
-import { CardActions } from '../../styles/components/mypost_style/CardActions'
+import {
+  CardActions,
+  ActionButtonWrapper,
+} from '../../styles/components/mypost_style/CardActions'
 import { ActionButton } from '../../styles/components/mypost_style/ActionButton'
 import MarkdownRenderer from '../markdown/MarkdownRenderer'
 import { useNickname } from '../../hooks/useNickname'
 import { useProfileImage } from '../../hooks/useProfileImage'
+
+import { Favorite, FavoriteBorder } from '@mui/icons-material'
+import useLikes from '../../hooks/useLikes'
+
 import { useNavigate } from 'react-router-dom'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
@@ -31,15 +38,26 @@ const PostCard = ({ post, isHome, onDelete }) => {
 
   const handleClick = () => {
     navigate(`/detail/${post.post_id}`) // 해당 게시물의 id로 Detail 페이지 이동
-  }
+  } // 디테일 페이지로 이동
 
   const handleDelete = (e) => {
     e.stopPropagation()
     onDelete(post.post_id)
   } // 삭제 기능
 
+  const handleLike = (e) => {
+    e.stopPropagation()
+    toggleLike()
+  }
+
   const nickname = useNickname(post.user_id)
   const profileImage = useProfileImage(post.user_id)
+
+  // 좋아요 훅 사용
+  const { likesCount, isLiked, toggleLike } = useLikes(
+    post.post_id,
+    post.user_id
+  )
 
   return (
     <StyledCard onClick={handleClick}>
@@ -63,12 +81,17 @@ const PostCard = ({ post, isHome, onDelete }) => {
 
       {!isHome && (
         <CardActions>
-          <ActionButton onClick={handleEdit}>
-            <EditIcon /> 수정
+          <ActionButton onClick={handleLike}>
+            {isLiked ? <Favorite /> : <FavoriteBorder />} {likesCount}
           </ActionButton>
-          <ActionButton onClick={handleDelete}>
-            <DeleteIcon /> 삭제
-          </ActionButton>
+          <ActionButtonWrapper>
+            <ActionButton onClick={handleEdit}>
+              <EditIcon /> 수정
+            </ActionButton>
+            <ActionButton onClick={handleDelete}>
+              <DeleteIcon /> 삭제
+            </ActionButton>
+          </ActionButtonWrapper>
         </CardActions>
       )}
     </StyledCard>
